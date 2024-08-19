@@ -1,21 +1,19 @@
 import home from "../assets/images/homebg.jpeg";
-import { useDeleteHouseMutation } from "@/redux/slices/housesApiSlice";
+import { useDeleteHouseMutation } from "../redux/slices/housesApiSlice";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 const HouseCard = ({ house, onViewDetails }) => {
   const { userInfo } = useSelector((state) => state.auth);
-  console.log(userInfo);
-  console.log(house.photos[0]);
-  // Assuming house object has properties like address, photos, rentPrice
+  // console.log(userInfo);
+  // console.log(house.images[0]);
+  // Assuming house object has properties like address, images, rentPrice
   const {
     _id,
 
     address,
-    photos,
+    images,
     rentPrice,
-    bedrooms,
-    street,
     propertyType,
   } = house;
 
@@ -38,7 +36,7 @@ const HouseCard = ({ house, onViewDetails }) => {
   return (
     <div className="bg-white rounded-md shadow-md p-4 flex flex-col space-y-2">
       <img
-        src={photos && photos[0] ? photos[0] : home} // Display first photo or placeholder
+        src={images && images[0] ? images[0] : home} // Display first photo or placeholder
         alt="House"
         className="w-full h-96 object-cover rounded-t-md"
         width={48}
@@ -49,8 +47,8 @@ const HouseCard = ({ house, onViewDetails }) => {
         <h3 className="text-lg font-medium text-gray-800">{address}</h3>
         <span className="text-gray-700">Rent: Ksh.{rentPrice}/month</span>
         <span className="text-gray-700"> {propertyType}</span>
-        <span className="text-gray-700">Bedrooms: {bedrooms}</span>
-        <span className="text-gray-700"> {street}</span>
+        {/* <span className="text-gray-700">Bedrooms: {bedrooms}</span> */}
+        {/* <span className="text-gray-700"> {street}</span> */}
       </div>
       {/* <p className="text-gray-600 line-clamp-2"></p> */}
       <button

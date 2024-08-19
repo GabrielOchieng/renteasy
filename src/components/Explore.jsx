@@ -69,7 +69,7 @@ const Explore = () => {
           type="submit"
           className=" bg-green-400 hover:bg-green-900 text-white font-bold p-3 w-32 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400"
         >
-          <Link to="/houselist">View more</Link>
+          <Link to="/houses">View more</Link>
         </button>
       </div>
     </div>

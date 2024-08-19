@@ -16,6 +16,7 @@ import Signup from "./pages/SignUpPage.jsx";
 import PrivateRoutes from "./routes/PrivateRoutes.jsx";
 import HouseForm from "./pages/HouseFormPage.jsx";
 import HouseDetails from "./pages/HouseDetails.jsx";
+import HouseListPage from "./pages/HouseListPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
       <Route element={<PrivateRoutes />}>
         <Route path="/create" element={<HouseForm />} />
         <Route path="/houses/:houseId" element={<HouseDetails />} />
+        <Route path="/houses" element={<HouseListPage />} />
       </Route>
     </Route>
   )

@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
-import HouseCard from "@/components/HouseCard";
 // import { useDispatch } from "react-redux";
-import { useGetHousesQuery } from "@/redux/slices/housesApiSlice";
+import { useGetHousesQuery } from "../redux/slices/housesApiSlice";
+import HouseCard from "../components/HouseCard";
 
 const HouseList = () => {
   const [filteredHouses, setFilteredHouses] = useState([]); // State for filtered properties

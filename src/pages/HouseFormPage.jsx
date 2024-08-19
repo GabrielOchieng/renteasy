@@ -1,12 +1,12 @@
 import { useRef, useState } from "react";
 import { useCreateHouseMutation } from "../redux/slices/housesApiSlice";
 
-import { useSelector } from "react-redux";
-import { toast } from "react-toastify";
+// import { useSelector } from "react-redux";
+// import { toast } from "react-toastify";
 
 const HouseForm = () => {
-  const { userInfo } = useSelector((state) => state.auth);
-  console.log(userInfo);
+  // const { userInfo } = useSelector((state) => state.auth);
+  // console.log(userInfo);
 
   const [street, setStreet] = useState("");
   const [town, setTown] = useState("");
@@ -16,7 +16,7 @@ const HouseForm = () => {
   const [bedrooms, setBedrooms] = useState(0);
   const [bathrooms, setBathrooms] = useState(0);
   const [rentPrice, setRentPrice] = useState(0);
-  const [photos, setPhotos] = useState([]); // Array of image URLs
+  const [images, setImages] = useState([]); // Array of image URLs
   const [description, setDescription] = useState("");
   const [contactInfo, setContactInfo] = useState("");
 
@@ -26,24 +26,26 @@ const HouseForm = () => {
   // Hidden input to store previously selected files
   const hiddenFileInputRef = useRef(null);
 
-  const handlePhotoChange = (e) => {
-    const newPhotos = e.target.files;
-    // for (let i = 0; i < e.target.files.length; i++) {
-    //   newPhotos.push(e.target.files[i]);
+  // const handlePhotoChange = (e) => {
+  //   const newPhotos = e.target.files;
+  //   // for (let i = 0; i < e.target.files.length; i++) {
+  //   //   newPhotos.push(e.target.files[i]);
 
-    //   // newPhotos.push(URL.createObjectURL(e.target.files[i]));
-    // }
-    setPhotos([...photos, ...newPhotos]);
-    console.log(newPhotos);
-  };
+  //   //   // newPhotos.push(URL.createObjectURL(e.target.files[i]));
+  //   // }
+  //   setPhotosimages, ...newPhotos]);
+  //   console.log(newPhotos);
+  // };
 
   const handleClick = () => {
     hiddenFileInputRef.current.click();
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData(); // For handling image uploads
-    formData.append("landlord", userInfo.name);
+
+    // Prepare the data for the mutation (including images)
+    const formData = new FormData();
     formData.append("street", street);
     formData.append("town", town);
     formData.append("estate", estate);
@@ -54,35 +56,69 @@ const HouseForm = () => {
     formData.append("rentPrice", rentPrice);
     formData.append("description", description);
     formData.append("contactInfo", contactInfo);
-
-    // Handle image uploads (replace with your upload logic)
-    for (let i = 0; i < photos.length; i++) {
-      formData.append("photos", photos[i]);
+    // Append each selected image to the formData
+    for (let i = 0; i < images.length; i++) {
+      formData.append("images", images[i]);
     }
 
     try {
       const response = await createHouse(formData);
-      if (response.error) {
-        console.error("House creation error:", response.error);
-        toast.error("An error occurred while adding the house.");
-      } else {
-        console.log("House created successfully:", response.data);
-        toast.success("House added successfully!");
-        // Reset form after successful submission (optional)
+      console.log("RESPONSE", response);
 
-        setStreet("");
-        // ... reset other fields
-      }
-    } catch (error) {
-      console.error("House creation error:", error);
-      toast.error("An error occurred while adding the house.");
+      // navigate("/products"); // Redirect after successful creation
+    } catch (err) {
+      console.log(err);
+      // Handle errors appropriately (e.g., display error message to user)
     }
   };
 
-  // Handle individual form field updates (similar for other fields)
-  //   const handleAddressChange = (e) => {
-  //     setAddress({ ...address, [e.target.name]: e.target.value });
-  //   };
+  const handleImageChange = (e) => {
+    // setImages(e.target.files); // Update the images state with selected files
+    setImages([...images, ...e.target.files]);
+  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const formData = new FormData(); // For handling image uploads
+  //   // formData.append("landlord", userInfo.name);
+  //   formData.append("street", street);
+  //   formData.append("town", town);
+  //   formData.append("estate", estate);
+  //   formData.append("address", address);
+  //   formData.append("propertyType", propertyType);
+  //   formData.append("bedrooms", bedrooms);
+  //   formData.append("bathrooms", bathrooms);
+  //   formData.append("rentPrice", rentPrice);
+  //   formData.append("description", description);
+  //   formData.append("contactInfo", contactInfo);
+
+  //   // Handle image uploads (replace with your upload logic)
+  //   for (let i = 0;images.length; i++) {
+  //     formData.appimages[i]);
+  //   }
+
+  //   try {
+  //     const response = await createHouse(formData);
+  //     if (response.error) {
+  //       console.error("House creation error:", response.error);
+  //       toast.error("An error occurred while adding the house.");
+  //     } else {
+  //       console.log("House created successfully:", response.data);
+  //       toast.success("House added successfully!");
+  //       // Reset form after successful submission (optional)
+
+  //       setStreet("");
+  //       // ... reset other fields
+  //     }
+  //   } catch (error) {
+  //     console.error("House creation error:", error);
+  //     toast.error("An error occurred while adding the house.");
+  //   }
+  // };
+
+  // // Handle individual form field updates (similar for other fields)
+  // //   const handleAddressChange = (e) => {
+  // //     setAddress({ ...address, [e.target.name]: e.target.value });
+  // //   };
   return (
     <div className="flex flex-col pt-4 gap-3 w-full bg-gray-300">
       <div className="">
@@ -104,6 +140,7 @@ const HouseForm = () => {
                 type="text"
                 id="street"
                 name="street"
+                value={street}
                 required
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                 onChange={(e) => setStreet(e.target.value)}
@@ -120,6 +157,7 @@ const HouseForm = () => {
                 type="text"
                 id="town"
                 name="town"
+                value={town}
                 required
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                 onChange={(e) => setTown(e.target.value)}
@@ -136,6 +174,7 @@ const HouseForm = () => {
                 type="text"
                 id="estate"
                 name="estate"
+                value={estate}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                 onChange={(e) => setEstate(e.target.value)}
               />
@@ -151,6 +190,7 @@ const HouseForm = () => {
                 type="text"
                 id="zipcode"
                 name="zipcode"
+                value={address}
                 required
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                 onChange={(e) => setAddress(e.target.value)}
@@ -169,6 +209,7 @@ const HouseForm = () => {
             <select
               id="propertyType"
               name="propertyType"
+              value={propertyType}
               required
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
               onChange={(e) => setPropertyType(e.target.value)}
@@ -198,6 +239,7 @@ const HouseForm = () => {
                 type="number"
                 id="bedrooms"
                 name="bedrooms"
+                value={bedrooms}
                 required
                 min="1"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
@@ -215,6 +257,7 @@ const HouseForm = () => {
                 type="number"
                 id="bedrooms"
                 name="bedrooms"
+                value={bathrooms}
                 required
                 min="1"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
@@ -232,6 +275,7 @@ const HouseForm = () => {
                 type="number"
                 id="rentPrice"
                 name="rentPrice"
+                value={rentPrice}
                 required
                 min="1"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
@@ -249,6 +293,7 @@ const HouseForm = () => {
                 type="string"
                 id="contactInfo"
                 name="contactInfo"
+                value={contactInfo}
                 required
                 min="1"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
@@ -265,6 +310,7 @@ const HouseForm = () => {
               <textarea
                 id="description"
                 name="description"
+                value={description}
                 required
                 rows={5}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
@@ -287,7 +333,7 @@ const HouseForm = () => {
                   name="photo"
                   accept="image/*"
                   multiple
-                  onChange={handlePhotoChange}
+                  onChange={handleImageChange}
                 />
               </div>
             </div>
