@@ -36,7 +36,7 @@ const HouseDetails = () => {
       <h1 className="text-2xl font-bold mb-4">{data?.propertyType}</h1>
       <div className="flex gap-3">
         <img
-          src={data.photos && data.photos[0] ? data?.photos[0] : home}
+          src={data.images && data.images[0] ? data?.images[0] : home}
           alt="House img"
           className="rounded-lg h-96 w-full object-cover"
           width={96}
@@ -44,14 +44,14 @@ const HouseDetails = () => {
         />
 
         <img
-          src={data.photos && data.photos[1]}
+          src={data.images && data.images[1]}
           alt="House img"
           className="rounded-lg h-96 w-full object-cover"
           width={96}
           height={96}
         />
         <img
-          src={data.photos && data.photos[2]}
+          src={data.images && data.images[2]}
           alt="House img"
           className="rounded-lg object-cover"
           width={96}
@@ -82,7 +82,7 @@ const HouseDetails = () => {
               <IoPersonCircleOutline className="h-48 w-48 text-blue-400" />
             </div>
             <div>
-              <p>Seller Name: {data.landlord}</p>
+              <p>Landlord Name: {data?.landlord?.name}</p>
               <p>Contact Information: {data.contactInfo}</p>
             </div>
           </div>
