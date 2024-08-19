@@ -1,20 +1,25 @@
 "use client";
 import { IoPersonCircleOutline } from "react-icons/io5";
-
+import axios from "axios";
 import home from "../assets/images/homebg.jpeg";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useGetHouseQuery } from "../redux/slices/housesApiSlice";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const HouseDetails = () => {
   const { userInfo } = useSelector((state) => state.auth);
   const { houseId } = useParams();
+  const user = userInfo?.user;
   //   const [house, setHouse] = useState(null);
   const [showSellerInfo, setShowSellerInfo] = useState(false); // State for seller info visibility
+  const navigate = useNavigate();
 
+  console.log("USERINFO", userInfo);
   const { data, isLoading, error } = useGetHouseQuery(houseId);
   console.log(data);
+  const isLandlord = data?.landlord?._id === user?._id;
+  const landlord = data?.landlord;
   // useEffect(() => {
   //   if (data) {
   //     setHouse(data); // Update state with fetched house data
@@ -30,6 +35,31 @@ const HouseDetails = () => {
   }
 
   const toggleSellerInfo = () => setShowSellerInfo(!showSellerInfo); // Toggle seller info visibility
+
+  // Function to initiate chat with seller
+  const handleStartChat = async () => {
+    if (userInfo) {
+      try {
+        const response = await axios.post(
+          "http://localhost:5000/conversations",
+          // "https://swap-society-api.onrender.com/conversations",
+          {
+            senderId: user?._id,
+            receiverId: landlord?._id,
+          }
+        );
+
+        console.log(response);
+        // 3. Redirect user to the chat page with the newly created conversation ID
+        // const conversationId = response.data._id;
+        // navigate(`/chats/${conversationId}`);
+      } catch (err) {
+        console.error("Error creating conversation:", err);
+      }
+    } else {
+      navigate("/login");
+    }
+  };
 
   return (
     <div className="flex flex-col p-8  mx-auto">
@@ -83,7 +113,16 @@ const HouseDetails = () => {
             </div>
             <div>
               <p>Landlord Name: {data?.landlord?.name}</p>
-              <p>Contact Information: {data.contactInfo}</p>
+              {!isLandlord && (
+                <Link
+                  to="/chats"
+                  className="text-blue-400"
+                  onClick={handleStartChat} // Pass seller ID
+                >
+                  Chat to enquire more
+                </Link>
+              )}
+              {/* <p>Contact Information: {data.contactInfo}</p> */}
             </div>
           </div>
         ) : (
