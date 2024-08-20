@@ -1,194 +1,61 @@
-"use client";
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
 const towns = [
-  {
-    name: "Nairobi",
-    link: "/",
-  },
-  {
-    name: "Kisumu",
-    link: "/",
-  },
-  {
-    name: "Mombasa",
-    link: "/",
-  },
-  {
-    name: "Nakuru",
-    link: "/",
-  },
-  {
-    name: "Eldoret",
-    link: "/",
-  },
-  {
-    name: "Naivasha",
-    link: "/",
-  },
-  {
-    name: "Machakos",
-    link: "/",
-  },
-  {
-    name: "Busia",
-    link: "/",
-  },
-  {
-    name: "Kakamega",
-    link: "/",
-  },
-  {
-    name: "Dodoma",
-    link: "/",
-  },
-  {
-    name: "Kampala",
-    link: "/",
-  },
+  "Nairobi",
+  "Kisumu",
+  "Mombasa",
+  "Nakuru",
+  "Eldoret",
+  "Naivasha",
+  "Machakos",
+  "Busia",
+  "Kakamega",
+  "Dodoma",
+  "Kampala",
 ];
+
 const types = [
-  {
-    name: "BedSitter",
-    link: "/",
-  },
-  {
-    name: "Single",
-    link: "/",
-  },
-  {
-    name: "One Bedroom",
-    link: "/",
-  },
-  {
-    name: "Two Bedroom",
-    link: "/",
-  },
-  {
-    name: "Three Bedroom",
-    link: "/",
-  },
-  {
-    name: "Four Bedroom",
-    link: "/",
-  },
-  {
-    name: "Home",
-    link: "/",
-  },
-  {
-    name: "Apartment",
-    link: "/",
-  },
+  "BedSitter",
+  "Single",
+  "One Bedroom",
+  "Two Bedroom",
+  "Three Bedroom",
+  "Four Bedroom",
+  "Home",
+  "Apartment",
 ];
+
 const priceRange = [
-  {
-    name: "1000-5000",
-    link: "/",
-  },
-  {
-    name: "5000-10000",
-    link: "/",
-  },
-  {
-    name: "10,000- 20,000",
-    link: "/",
-  },
-  {
-    name: "20,000 -40,000",
-    link: "/",
-  },
-  {
-    name: "40,000-70,000",
-    link: "/",
-  },
-  {
-    name: "70,000 - 100,000",
-    link: "/",
-  },
-  {
-    name: "100,000- 500,000",
-    link: "/",
-  },
-  {
-    name: "500,000+",
-    link: "/",
-  },
+  "1000-5000",
+  "5000-10000",
+  "10,000- 20,000",
+  "20,000 -40,000",
+  "40,000-70,000",
+  "70,000 - 100,000",
+  "100,000- 500,000",
+  "500,000+",
 ];
+
 const estates = [
-  {
-    name: "Donholm",
-    link: "/",
-  },
-  {
-    name: "Kitengela",
-    link: "/",
-  },
-  {
-    name: "Kahawa",
-    link: "/",
-  },
-  {
-    name: "Utawala",
-    link: "/",
-  },
-  {
-    name: "Buruburu",
-    link: "/",
-  },
-  {
-    name: "Kilimani",
-    link: "/",
-  },
-  {
-    name: "Kawangware",
-    link: "/",
-  },
-  {
-    name: "Ngong",
-    link: "/",
-  },
-  {
-    name: "Karen",
-    link: "/",
-  },
-  {
-    name: "Umoja",
-    link: "/",
-  },
-  {
-    name: "Luckysummer",
-    link: "/",
-  },
-  {
-    name: "Westlands",
-    link: "/",
-  },
-  {
-    name: "Juja",
-    link: "/",
-  },
-  {
-    name: "Kangemi",
-    link: "/",
-  },
-  {
-    name: "Langata",
-    link: "/",
-  },
-  {
-    name: "Lavington",
-    link: "/",
-  },
-  {
-    name: "Kileleshwa",
-    link: "/",
-  },
-  {
-    name: "Rongai",
-    link: "/",
-  },
+  "Donholm",
+  "Kitengela",
+  "Kahawa",
+  "Utawala",
+  "Buruburu",
+  "Kilimani",
+  "Kawangware",
+  "Ngong",
+  "Karen",
+  "Umoja",
+  "Luckysummer",
+  "Westlands",
+  "Juja",
+  "Kangemi",
+  "Langata",
+  "Lavington",
+  "Kileleshwa",
+  "Rongai",
 ];
 
 const Streets = () => {
@@ -215,12 +82,14 @@ const Streets = () => {
       <div className="flex w-full justify-between p-10">
         {listToShow.map((list, index) => (
           <div key={index} className="text-xs">
-            <h2 className=" font-bold mb-2">{list[0].name.split(" ")[0]}</h2>
+            <h2 className="font-bold mb-2">{list[0]}</h2>
             <ul className="flex flex-col justify-center">
               {list.map((item) => (
-                <li key={item.name}>
-                  <Link to={item.link} className=" hover:underline">
-                    {item.name}
+                <li key={item}>
+                  {" "}
+                  {/* Use item itself as key */}
+                  <Link to={`/filter/${item}`} className="hover:underline">
+                    {item}
                   </Link>
                 </li>
               ))}
@@ -231,7 +100,7 @@ const Streets = () => {
       <div>
         <button
           type="submit"
-          className={`   p-3 w-32 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400 ${
+          className={` p-3 w-32 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400 ${
             showMore ? "hidden" : ""
           }`}
           onClick={handleViewMore}
@@ -240,7 +109,7 @@ const Streets = () => {
         </button>
         <button
           type="submit"
-          className={`  p-3 w-32 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400 ${
+          className={` p-3 w-32 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400 ${
             showMore ? "block" : "hidden"
           }`}
           onClick={handleViewMore}
