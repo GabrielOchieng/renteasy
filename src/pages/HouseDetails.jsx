@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useGetHouseQuery } from "../redux/slices/housesApiSlice";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import Map from "../components/Map";
 
 const HouseDetails = () => {
   const { userInfo } = useSelector((state) => state.auth);
@@ -15,9 +16,8 @@ const HouseDetails = () => {
   const [showSellerInfo, setShowSellerInfo] = useState(false); // State for seller info visibility
   const navigate = useNavigate();
 
-  console.log("USERINFO", userInfo);
   const { data, isLoading, error } = useGetHouseQuery(houseId);
-  console.log(data);
+
   const isLandlord = data?.landlord?._id === user?._id;
   const landlord = data?.landlord;
   // useEffect(() => {
@@ -80,13 +80,15 @@ const HouseDetails = () => {
           width={96}
           height={96}
         />
-        <img
+        {/* <img
           src={data.images && data.images[2]}
           alt="House img"
           className="rounded-lg object-cover"
           width={96}
           height={96}
-        />
+        /> */}
+
+        <Map town={data?.town} />
       </div>
       <div className="mt-4 space-y-4 border rounded p-4">
         <p className="text-lg font-medium ">
