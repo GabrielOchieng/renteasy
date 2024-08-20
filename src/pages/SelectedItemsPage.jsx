@@ -22,7 +22,8 @@ const SelectedItems = () => {
         return (
           house.town.toLowerCase() === lowerCaseFilter ||
           house.estate?.toLowerCase() === lowerCaseFilter ||
-          house.propertyType?.toLowerCase() === lowerCaseFilter
+          house.propertyType?.toLowerCase() === lowerCaseFilter ||
+          house.rentPrice <= filter
         );
       })
     : houses; // If no filter, show all houses
@@ -38,7 +39,7 @@ const SelectedItems = () => {
   return (
     <div className="pt-3 min-h-screen">
       <h2 className="font-bold text-center">Houses in {filter}</h2>
-      <div className="flex p-4">
+      <div className="flex p-4 flex-wrap">
         {noHouse && (
           <p className="text-center mx-auto">
             No houses found matching {filter}
@@ -46,7 +47,7 @@ const SelectedItems = () => {
         )}
         {/* Display filtered houses here */}
         {filteredHouses.map((house) => (
-          <div key={house._id}>
+          <div key={house._id} className="w-[90%] md:w-[50%] mx-auto">
             <HouseCard
               onViewDetails={() => handleViewDetails(house._id)}
               house={house}

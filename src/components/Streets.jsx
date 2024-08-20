@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+const townsTitle = "Towns";
+const estatesTitle = "Estates";
+const typesTitle = "Property Types";
+const priceRangeTitle = "Maximum Price";
+
 const towns = [
   "Nairobi",
   "Kisumu",
@@ -27,14 +32,22 @@ const types = [
 ];
 
 const priceRange = [
-  "1000-5000",
-  "5000-10000",
-  "10,000- 20,000",
-  "20,000 -40,000",
-  "40,000-70,000",
-  "70,000 - 100,000",
-  "100,000- 500,000",
-  "500,000+",
+  "1000",
+  "3000",
+  "5000",
+  "8000",
+  "10000",
+  "13000",
+  "15000",
+  "20000",
+  "25000",
+  "30000",
+  "35000",
+  "40000",
+  "50000",
+  "70000",
+  "100000",
+  "150000",
 ];
 
 const estates = [
@@ -58,6 +71,8 @@ const estates = [
   "Rongai",
 ];
 
+const titles = [townsTitle, estatesTitle, typesTitle, priceRangeTitle];
+
 const Streets = () => {
   const [showMore, setShowMore] = useState(false);
   const listToShow = showMore
@@ -72,7 +87,6 @@ const Streets = () => {
   const handleViewMore = () => {
     setShowMore(!showMore);
   };
-
   return (
     <div className="flex flex-col items-center py-10">
       <div>
@@ -82,7 +96,7 @@ const Streets = () => {
       <div className="flex w-full justify-between p-10">
         {listToShow.map((list, index) => (
           <div key={index} className="text-xs">
-            <h2 className="font-bold mb-2">{list[0]}</h2>
+            {<h2 className="font-bold mb-2">{titles[index]}</h2>}
             <ul className="flex flex-col justify-center">
               {list.map((item) => (
                 <li key={item}>
