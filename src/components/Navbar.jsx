@@ -19,10 +19,10 @@ const items = [
     name: "Rent",
     url: "/",
   },
-  //   {
-  //     name: "Add Property",
-  //     url: "/",
-  //   },
+  {
+    name: "Chat",
+    url: "/chats",
+  },
 ];
 
 const Navbar = () => {

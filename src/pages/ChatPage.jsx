@@ -67,7 +67,8 @@ const ChatPage = () => {
     const getMessages = async () => {
       try {
         const res = await axios.get(
-          `https://swap-society-api.onrender.com/messages/${currentChat?._id}`
+          `http://localhost:5000/messages/${currentChat?._id}`
+          // `https://swap-society-api.onrender.com/messages/${currentChat?._id}`
         );
         setMessages(res.data);
       } catch (err) {

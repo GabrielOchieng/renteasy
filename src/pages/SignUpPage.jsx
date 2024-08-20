@@ -23,7 +23,7 @@ const Signup = () => {
 
   useEffect(() => {
     if (userInfo) {
-      // router.push("/login");
+      navigate("/");
     }
   }, [navigate, userInfo]);
 
@@ -39,9 +39,8 @@ const Signup = () => {
           password,
           role,
           phoneNumber,
-        });
+        }).unwrap();
         dispatch(setCredentials({ ...res }));
-
         toast.success("User created successfully");
         navigate("/");
       } catch (err) {
@@ -50,7 +49,6 @@ const Signup = () => {
       }
     }
   };
-
   return (
     <div
       className="flex min-h-screen items-center justify-center bg-gray-100"
@@ -139,8 +137,8 @@ const Signup = () => {
               className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
             >
               <option value="">Select User Type</option>
-              <option value="Landlord">Landlord</option>
-              <option value="Tenant">Tenant</option>
+              <option value="landlord">Landlord</option>
+              <option value="tenant">Tenant</option>
             </select>
           </div>
           <div className="flex flex-col">
