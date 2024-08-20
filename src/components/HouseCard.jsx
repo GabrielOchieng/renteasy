@@ -11,7 +11,6 @@ const HouseCard = ({ house, onViewDetails }) => {
   const {
     _id,
 
-    address,
     images,
     rentPrice,
     propertyType,
@@ -44,9 +43,9 @@ const HouseCard = ({ house, onViewDetails }) => {
       />
 
       <div className="flex justify-between items-center">
-        <h3 className="text-lg font-medium text-gray-800">{address}</h3>
+        <span className="text-gray-700 font-bold"> {propertyType}</span>
+
         <span className="text-gray-700">Rent: Ksh.{rentPrice}/month</span>
-        <span className="text-gray-700"> {propertyType}</span>
         {/* <span className="text-gray-700">Bedrooms: {bedrooms}</span> */}
         {/* <span className="text-gray-700"> {street}</span> */}
       </div>
