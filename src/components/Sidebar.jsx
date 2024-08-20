@@ -6,9 +6,8 @@ import { logOut } from "../redux/slices/AuthSlice";
 import { Link } from "react-router-dom";
 
 const items = [
-  { name: "Manage Rentals", url: "/" },
-  { name: "Houses For Rent", url: "/" },
-  { name: "Homes for Rent", url: "/" },
+  { name: "Houses For Rent", url: "/houses" },
+  { name: "Homes for Rent", url: "/houses" },
   { name: "Contact Us", url: "/" },
   { name: "Help Center", url: "/" },
 ];
@@ -64,6 +63,14 @@ const Sidebar = ({ toggleSidebar, isOpen }) => {
           </div>
         ))}
         <div className="flex flex-col w-full gap-2 pl-2 md:hidden">
+          <div>
+            <Link
+              to={userInfo ? "/chats" : "/login"}
+              className=" hover:underline"
+            >
+              Chats
+            </Link>
+          </div>
           <div className="">
             <Link
               to={userInfo ? "/create" : "/login"}

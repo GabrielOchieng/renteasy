@@ -20,7 +20,7 @@ const items = [
     url: "/",
   },
   {
-    name: "Chat",
+    name: "Chats",
     url: "/chats",
   },
 ];
