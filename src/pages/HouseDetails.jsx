@@ -1,7 +1,7 @@
 "use client";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import axios from "axios";
-import home from "../assets/images/homebg.jpeg";
+// import home from "../assets/images/homebg.jpeg";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useGetHouseQuery } from "../redux/slices/housesApiSlice";
@@ -64,41 +64,49 @@ const HouseDetails = () => {
   return (
     <div className="flex flex-col p-8  mx-auto">
       <h1 className="text-2xl font-bold mb-4">{data?.propertyType}</h1>
-      <div className="flex gap-3">
-        <img
-          src={data.images && data.images[0] ? data?.images[0] : home}
-          alt="House img"
-          className="rounded-lg h-96 w-full object-cover"
-          width={96}
-          height={96}
-        />
-
-        <img
-          src={data.images && data.images[1]}
-          alt="House img"
-          className="rounded-lg h-96 w-full object-cover"
-          width={96}
-          height={96}
-        />
-        {/* <img
-          src={data.images && data.images[2]}
-          alt="House img"
-          className="rounded-lg object-cover"
-          width={96}
-          height={96}
-        /> */}
-
+      <div className="flex gap-3 flex-wrap">
+        {data.images && data.images.length > 0 && (
+          <>
+            <img
+              src={data.images[0]}
+              alt="House img"
+              className="rounded-lg h-96 w-full object-cover"
+              width={96}
+              height={96}
+            />
+            {data.images.length > 1 && (
+              <img
+                src={data.images[1]}
+                alt="House img"
+                className="rounded-lg h-96 w-full object-cover"
+                width={96}
+                height={96}
+              />
+            )}
+            {data.images.length > 2 && (
+              <img
+                src={data.images[2]}
+                alt="House img"
+                className="rounded-lg object-cover"
+                width={96}
+                height={96}
+              />
+            )}
+          </>
+        )}
+      </div>
+      <div className="mt-4 flex justify-between lg:justify-evenly border space-y-4  flex-wrap md:flex-nowrap rounded px-4 lg:px-8 py-4">
         <Map town={data?.town} />
+        <div className=" ">
+          <p className="text-lg font-medium ">
+            Rent: Ksh.{data?.rentPrice} per month
+          </p>
+          <p>Bedrooms: {data?.bedrooms}</p>
+          <p>Location: {data?.town}</p>{" "}
+          {/* Assuming town represents location */}
+          <p>Description: {data?.description}</p>
+        </div>
       </div>
-      <div className="mt-4 space-y-4 border rounded p-4">
-        <p className="text-lg font-medium ">
-          Rent: Ksh.{data?.rentPrice} per month
-        </p>
-        <p>Bedrooms: {data?.bedrooms}</p>
-        <p>Location: {data?.town}</p> {/* Assuming town represents location */}
-        <p>Description: {data?.description}</p>
-      </div>
-
       {/* Seller Information Section */}
       <button
         className="text-blue-500 hover:underline mt-4"

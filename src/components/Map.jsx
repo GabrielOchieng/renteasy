@@ -52,7 +52,11 @@ const Map = ({ town }) => {
         <div>
           {" "}
           <p>Location</p>
-          <div id="map" style={{ height: "400px", width: "400px" }}></div>
+          {/* <div id="map" style={{ height: "400px", width: "400px" }}></div> */}
+          <div
+            id="map"
+            className="w-[250px] h-[400px] md:w-[400px] lg:w-[600px]"
+          ></div>
         </div>
       )}
     </div>
