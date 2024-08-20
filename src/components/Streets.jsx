@@ -93,9 +93,9 @@ const Streets = () => {
         <h1 className="font-bold text-4xl underline">GET HOUSES BY:</h1>
       </div>
 
-      <div className="flex w-full justify-between p-10">
+      <div className="flex flex-wrap gap-4 md:gap-0 w-[100%] mx-auto justify-center   p-10">
         {listToShow.map((list, index) => (
-          <div key={index} className="text-xs">
+          <div key={index} className="text-xs w-[45%] md:w-[23%]">
             {<h2 className="font-bold mb-2">{titles[index]}</h2>}
             <ul className="flex flex-col justify-center">
               {list.map((item) => (

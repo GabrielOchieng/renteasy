@@ -127,7 +127,7 @@ const ChatPage = () => {
               key={c._id}
               onClick={() => setCurrentChat(c)}
               className={`cursor-pointer hover:bg-gray-100 px-4 py-2 ${
-                currentChat?._id === c._id ? "bg-blue-500 text-white" : ""
+                currentChat?._id === c._id ? "bg-green-400 text-white" : ""
               }`}
             >
               <Conversation conversation={c} currentUser={user} />
