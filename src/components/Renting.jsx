@@ -17,9 +17,9 @@ const Renting = () => {
         </p>
       </div>
 
-      <div className="flex flex-col bg-gray-100  ">
-        <div className="flex">
-          <div className="flex flex-col items-start justify-center w-1/2 p-10 gap-5 ">
+      <div className="flex flex-col bg-gray-100 pb-5 sm:pb-0 ">
+        <div className="flex flex-col sm:flex-row mt-10 sm:mt-0">
+          <div className="flex flex-col items-start justify-center w-[90%] sm:w-1/2 mx-auto  p-10 gap-5 ">
             <h3 className="font-bold text-2xl">Tips for Renters</h3>
             <p>
               Find answers to all of your renting questions with the best guide
@@ -29,19 +29,19 @@ const Renting = () => {
               Browse Articles
             </Link>
           </div>
-          <div className="w-1/2 ">
+          <div className="w-[90%] sm:w-1/2 mx-auto ">
             <img src={family} alt="Home" className="w-full h-64 object-cover" />
           </div>
         </div>
-        <div className="flex">
-          <div className="w-1/2 ">
+        <div className="flex flex-col sm:flex-row mt-10 sm:mt-0">
+          <div className="w-[90%] sm:w-1/2 mx-auto ">
             <img
               src={browsing}
               alt="Home"
               className="w-full h-64 object-cover"
             />
           </div>
-          <div className="flex flex-col items-start justify-center w-1/2 p-10 gap-5 ">
+          <div className="flex flex-col items-start justify-center w-[90%] sm:w-1/2 mx-auto p-10 gap-5 ">
             <h3 className="font-bold text-2xl">Property Manager Resources</h3>
             <p>
               Stay up-to-date using our tips and guides on rent payments,
@@ -52,8 +52,8 @@ const Renting = () => {
             </Link>
           </div>
         </div>
-        <div className="flex">
-          <div className="flex flex-col items-start justify-center w-1/2 p-10 gap-5 ">
+        <div className="flex flex-col sm:flex-row">
+          <div className="flex flex-col items-start justify-center w-[90%] sm:w-1/2 mx-auto p-4 sm:p-10 gap-5 ">
             <h3 className="font-bold text-2xl">Take Us With You</h3>
             <p>
               Keep{" "}
@@ -73,7 +73,7 @@ const Renting = () => {
               />
             </div>
           </div>
-          <div className="w-1/2 ">
+          <div className="w-[90%] sm:w-1/2 mx-auto ">
             <img src={phoneb} alt="Home" className="w-full h-64 object-cover" />
           </div>
         </div>

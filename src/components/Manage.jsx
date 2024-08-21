@@ -15,18 +15,21 @@ const Manage = () => {
       </div>
 
       <div className="flex flex-col bg-gray-100  ">
-        <div className="flex">
-          <div className="flex flex-col items-start justify-center w-1/2 p-10 gap-5 ">
+        <div className="flex flex-col sm:flex-row">
+          <div className="flex flex-col items-start justify-center w-[90%] sm:w-1/2 mx-auto p-10 gap-5 ">
             <h3 className="font-bold text-2xl">Advertise Your Rental</h3>
             <p>
               Connect with more than a thousand renters looking for new homes
               using our comprehensive marketing platform.
             </p>
-            <Link to="/" className="text-blue-400 hover:underline text-xl">
+            <Link
+              to="/houses"
+              className="text-blue-400 hover:underline text-xl"
+            >
               List Your Property
             </Link>
           </div>
-          <div className="w-1/2 ">
+          <div className="w-[90%] sm:w-1/2 mx-auto ">
             <img
               src={rentals}
               alt="Home"
@@ -34,15 +37,15 @@ const Manage = () => {
             />
           </div>
         </div>
-        <div className="flex">
-          <div className="w-1/2 ">
+        <div className="flex flex-col sm:flex-row mt-10 sm:mt-0">
+          <div className="w-[90%] sm:w-1/2 mx-auto ">
             <img
               src={housekey}
               alt="Home"
               className="w-full h-64 object-cover"
             />
           </div>
-          <div className="flex flex-col items-start justify-center w-1/2 p-10 gap-5 ">
+          <div className="flex flex-col items-start justify-center w-[90%] sm:w-1/2 mx-auto p-10 gap-5 ">
             <h3 className="font-bold text-2xl">Lease 100% Online</h3>
             <p>
               Accept applications, agree on payments online and process the
