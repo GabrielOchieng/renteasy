@@ -45,7 +45,7 @@ const Explore = () => {
           return (
             <div
               key={index}
-              className="flex  flex-col border border-green-400 rounded-md w-[45%]  md:w-1/4 gap-4 pb-4 hover:scale-110 transition duration-300 ease-in-out"
+              className="flex mx-auto flex-col border border-green-400 rounded-md w-[45%]  md:w-1/4 gap-4 pb-4 hover:scale-110 transition duration-300 ease-in-out"
             >
               <img
                 src={item.image.home}
