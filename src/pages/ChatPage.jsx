@@ -113,6 +113,17 @@ const ChatPage = () => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
+  const markMessageAsRead = async (messageId) => {
+    try {
+      const response = await axios.put(
+        `http://localhost:5000/messages/${messageId}/mark-as-read`
+      );
+      console.log("Message marked as read:", response.data);
+    } catch (error) {
+      console.error("Error marking message as read:", error);
+    }
+  };
+
   return (
     <div className="messenger flex flex-col md:flex-row">
       <div className="chatMenu w-full md:w-[20%] border-r">
@@ -149,7 +160,12 @@ const ChatPage = () => {
               <div className="chatBoxTop h-screen overflow-y-auto  px-4 py-2">
                 {messages?.map((m) => (
                   <div ref={scrollRef} key={m._id}>
-                    <Message message={m} own={m.sender === user._id} />
+                    <Message
+                      message={m}
+                      own={m.sender === user._id}
+                      currentChat={currentChat}
+                      markMessageAsRead={markMessageAsRead}
+                    />
                   </div>
                 ))}
               </div>
