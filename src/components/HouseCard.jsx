@@ -8,15 +8,11 @@ const HouseCard = ({ house, onViewDetails }) => {
   // console.log(userInfo);
   // console.log(house.images[0]);
   // Assuming house object has properties like address, images, rentPrice
-  const {
-    _id,
-
-    images,
-    rentPrice,
-    propertyType,
-  } = house;
+  const { _id, town, estate, images, rentPrice, propertyType } = house;
 
   const [deleteHouse, { isLoading }] = useDeleteHouseMutation();
+
+  const isLandlord = house.landlord === userInfo.user._id;
 
   const handleDelete = async () => {
     if (!userInfo) return;
@@ -49,6 +45,13 @@ const HouseCard = ({ house, onViewDetails }) => {
         {/* <span className="text-gray-700">Bedrooms: {bedrooms}</span> */}
         {/* <span className="text-gray-700"> {street}</span> */}
       </div>
+      <div className="flex justify-between items-center">
+        {/* <span className="text-gray-700 font-bold"> {propertyType}</span> */}
+
+        {/* <span className="text-gray-700">Rent: Ksh.{rentPrice}/month</span> */}
+        <span className="text-gray-700">Location: {town}</span>
+        <span className="text-gray-700"> {estate}</span>
+      </div>
       {/* <p className="text-gray-600 line-clamp-2"></p> */}
       <button
         className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400"
@@ -56,15 +59,17 @@ const HouseCard = ({ house, onViewDetails }) => {
       >
         View Details
       </button>
-      <button
-        className={`w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-400 ${
-          isLoading ? "bg-gray-200 text-gray-400 cursor-not-allowed" : ""
-        }`}
-        onClick={handleDelete}
-        disabled={isLoading}
-      >
-        {isLoading ? "Deleting..." : "Delete"}
-      </button>
+      {isLandlord && (
+        <button
+          className={`w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-400 ${
+            isLoading ? "bg-gray-200 text-gray-400 cursor-not-allowed" : ""
+          }`}
+          onClick={handleDelete}
+          disabled={isLoading}
+        >
+          {isLoading ? "Deleting..." : "Delete"}
+        </button>
+      )}
     </div>
   );
 };
