@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { io } from "socket.io-client";
 import { IoPersonCircleSharp } from "react-icons/io5";
+import InputEmoji from "react-input-emoji";
 
 const ChatPage = () => {
   const { userInfo } = useSelector((state) => state.auth);
@@ -170,12 +171,20 @@ const ChatPage = () => {
                 ))}
               </div>
               <div className="chatBoxBottom flex items-center justify-between px-4 py-2">
-                <textarea
+                {/* <textarea
                   className="chatMessageInput w-full h-24 resize-none py-2 px-4 border border-gray-200 focus:outline-none rounded-md"
                   placeholder="Type your message here..."
                   onChange={(e) => setNewMessage(e.target.value)}
                   value={newMessage}
+                /> */}
+                <InputEmoji
+                  value={newMessage}
+                  onChange={setNewMessage}
+                  cleanOnEnter
+                  // onEnter={handleOnEnter}
+                  placeholder="Type a message"
                 />
+
                 <button
                   className="chatSubmitButton px-4 py-2 ml-2 text-white bg-teal-500 rounded-md hover:bg-teal-700"
                   onClick={handleSubmit}
