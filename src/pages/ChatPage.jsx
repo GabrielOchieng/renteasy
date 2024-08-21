@@ -80,15 +80,15 @@ const ChatPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const message = {
-      sender: user._id,
-      text: newMessage,
-      conversationId: currentChat._id,
-    };
-
     const receiverId = currentChat.members.find(
       (member) => member !== user._id
     );
+    const message = {
+      sender: user._id,
+      recipient: receiverId,
+      text: newMessage,
+      conversationId: currentChat._id,
+    };
 
     socket.current.emit("sendMessage", {
       senderId: user._id,
