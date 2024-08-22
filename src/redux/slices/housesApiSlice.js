@@ -17,6 +17,11 @@ export const housesApiSlice = apiSlice.injectEndpoints({
         url: `${HOUSES_URL}/${id}`,
       }),
     }),
+
+    // Get user's products
+    getUserHouses: builder.query({
+      query: (userId) => `${HOUSES_URL}/${userId}/houses`, // Include user ID in URL
+    }),
     createHouse: builder.mutation({
       query: (house) => ({
         url: `${HOUSES_URL}`,
@@ -43,6 +48,7 @@ export const housesApiSlice = apiSlice.injectEndpoints({
 export const {
   useGetHousesQuery,
   useGetHouseQuery,
+  useGetUserHousesQuery,
   useCreateHouseMutation,
   useUpdateHouseMutation,
   useDeleteHouseMutation,

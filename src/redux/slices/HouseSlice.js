@@ -20,6 +20,19 @@ const houseSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
+    // Fetch houses for a specific user
+    fetchUserHousesRequest: (state) => {
+      state.loading = true;
+    },
+    fetchUserHousesSuccess: (state, action) => {
+      state.loading = false;
+      state.products = action.payload;
+    },
+    fetchUserHousesFailure: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+
     addHouse: (state, action) => {
       state.houses.push(action.payload);
     },

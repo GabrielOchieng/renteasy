@@ -19,6 +19,7 @@ import HouseDetails from "./pages/HouseDetails.jsx";
 import HouseListPage from "./pages/HouseListPage.jsx";
 import ChatPage from "./pages/ChatPage.jsx";
 import SelectedItems from "./pages/SelectedItemsPage.jsx";
+import UserHousesPage from "./pages/UserHousesPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,6 +34,7 @@ const router = createBrowserRouter(
         <Route path="/houses" element={<HouseListPage />} />
         <Route path="/filter/:filter" element={<SelectedItems />} />
         <Route path="/chats" element={<ChatPage />} />
+        <Route path="/:userId/houses" element={<UserHousesPage />} />
       </Route>
     </Route>
   )

@@ -6,29 +6,30 @@ import { Link } from "react-router-dom";
 import { useLogoutMutation } from "../redux/slices/usersApiSlice";
 import { logOut } from "../redux/slices/AuthSlice";
 
-const items = [
-  {
-    name: "Rentals",
-    url: "/",
-  },
-  // {
-  //   name: "Signin",
-  //   url: "/login",
-  // },
-  {
-    name: "Rent",
-    url: "/",
-  },
-  {
-    name: "Chats",
-    url: "/chats",
-  },
-];
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { userInfo } = useSelector((state) => state.auth);
 
+  const userId = userInfo?.user._id;
+
+  const items = [
+    {
+      name: "Rentals",
+      url: "/",
+    },
+    {
+      name: "Houses",
+      url: `/${userId}/houses`,
+    },
+    {
+      name: "Rent",
+      url: "/",
+    },
+    {
+      name: "Chats",
+      url: "/chats",
+    },
+  ];
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
@@ -69,6 +70,7 @@ const Navbar = () => {
             </Link>
           );
         })}
+
         {userInfo ? (
           <div className="py-4 px-5 flex gap-2">
             <p>Welcome {userInfo?.data?.name}</p>
