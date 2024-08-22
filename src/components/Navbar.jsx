@@ -15,16 +15,13 @@ const Navbar = () => {
   const items = [
     {
       name: "Rentals",
-      url: "/",
+      url: "/houses",
     },
     {
-      name: "Houses",
+      name: "My houses",
       url: `/${userId}/houses`,
     },
-    {
-      name: "Rent",
-      url: "/",
-    },
+
     {
       name: "Chats",
       url: "/chats",
@@ -55,9 +52,9 @@ const Navbar = () => {
 
         <p>Menu</p>
       </div>
-      <div>
-        <h1 className="font-bold text-2xl   text-green-400  py-4">RENTO</h1>
-      </div>
+      <Link to="/">
+        <h1 className="font-bold text-2xl   text-green-400  py-4">RENTEASY</h1>
+      </Link>
       <div className="  hidden md:flex gap-3 ">
         {items.map((item, index) => {
           return (
@@ -86,7 +83,7 @@ const Navbar = () => {
         <div className="bg-gray-700 py-5 px-5">
           <Link
             to={userInfo ? "/create" : "/login"}
-            className=" text-white hover:underline"
+            className=" text-green-400 hover:underline"
           >
             Add Property
           </Link>

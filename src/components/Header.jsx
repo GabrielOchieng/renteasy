@@ -51,7 +51,7 @@ const Header = () => {
             Search
           </label>
         </div>
-        <div className="mx-auto fixed left-[20%] sm:left-[40%] bottom-8 ">
+        <div className="mx-auto fixed left-[20%] sm:left-[40%] bottom-36">
           {isModalOpen && (
             <HouseSearchModal
               searchResults={searchResults}

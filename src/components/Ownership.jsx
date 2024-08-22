@@ -34,7 +34,7 @@ const Ownership = () => {
           <img
             src={home}
             alt="Home"
-            className="w-full h-64 sm:h-68 object-cover"
+            className="w-full h-64 sm:h-full object-cover"
           />
         </div>
       </div>

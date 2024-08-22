@@ -33,8 +33,8 @@ const Sidebar = ({ toggleSidebar, isOpen }) => {
       } `}
     >
       <div className="flex items-center justify-between h-16 px-4 bg-gray-900 text-white">
-        <h1 className="text-xl font-bold">RENTO</h1>
-        <button onClick={toggleSidebar} className="focus:outline-none">
+        <h1 className="text-xl font-bold text-green-400">RENTEASY</h1>
+        <button onClick={toggleSidebar} className="focus:outline-none ">
           <svg
             className="h-6 w-6 text-white"
             viewBox="0 0 24 24"
@@ -74,7 +74,7 @@ const Sidebar = ({ toggleSidebar, isOpen }) => {
           <div className="">
             <Link
               to={userInfo ? "/create" : "/login"}
-              className=" hover:underline"
+              className=" hover:underline text-green-400"
             >
               Add Property
             </Link>
