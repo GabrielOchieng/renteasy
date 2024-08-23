@@ -8,6 +8,7 @@ import HouseCard from "../components/HouseCard";
 const UserHousesPage = () => {
   const { userId } = useParams(); // Get user ID from route parameters
   const { data: houses, isLoading } = useGetUserHousesQuery(userId);
+  console.log(houses);
   const [
     deleteProduct,
     { isLoading: isDeleting, isSuccess, error: deleteError },
@@ -21,8 +22,10 @@ const UserHousesPage = () => {
   //   return <div>Error: {error.message}</div>;
   // }
 
-  if (!houses?.length)
-    return <div className="h-screen p-10">You have no listed houses.</div>;
+  if (houses.length === 0)
+    return (
+      <div className="h-screen font-bold p-10">You have no listed houses.</div>
+    );
 
   const handleDeleteHouse = async (houseId) => {
     try {
@@ -35,7 +38,7 @@ const UserHousesPage = () => {
   return (
     <div className="bg-gray-100 w-full">
       <div className="container mx-auto px-4 py-10 ">
-        <h1 className="font-bold mb-3">Your listed Listed Products</h1>
+        <h1 className="font-bold mb-3">Your Listed Houses</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {houses.map((house) => (
             <HouseCard

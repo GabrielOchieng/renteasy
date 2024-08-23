@@ -56,7 +56,6 @@ const LoginPage = () => {
       navigate("/");
     }
   }, [navigate, userInfo]);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -66,30 +65,21 @@ const LoginPage = () => {
 
       // Check for successful login and presence of token in response
       if (res.data.token) {
-        localStorage.setItem("token", res.data.token);
+        // Dispatch action to set user credentials in Redux store
+        dispatch(setCredentials({ ...res.data }));
+
+        // Assuming navigate is a function to redirect (e.g., from react-router-dom)
+        navigate("/");
       } else {
         // Handle unsuccessful login (e.g., display error message)
         toast.error(res.data?.message || "Login failed");
         return; // Exit the function if login fails
       }
-
-      const headers = {
-        "Content-Type": "application/json", // Assuming JSON data
-      };
-
-      // Add Authorization header only if token is present
-      if (localStorage.getItem("token")) {
-        headers.Authorization = `Bearer ${localStorage.getItem("token")}`;
-      }
-
-      dispatch(setCredentials({ ...res.data }));
-      navigate("/");
     } catch (err) {
       toast.error("Invalid Email or Password");
       console.error(err);
     }
   };
-
   return (
     <div
       className="flex min-h-screen items-center justify-center bg-gray-100"

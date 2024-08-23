@@ -6,7 +6,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import store from "./redux/store.js";
+import store, { persistor } from "./redux/store.js";
 import { Provider } from "react-redux";
 import App from "./App.jsx";
 import "./index.css";
@@ -20,6 +20,7 @@ import HouseListPage from "./pages/HouseListPage.jsx";
 import ChatPage from "./pages/ChatPage.jsx";
 import SelectedItems from "./pages/SelectedItemsPage.jsx";
 import UserHousesPage from "./pages/UserHousesPage.jsx";
+import { PersistGate } from "redux-persist/integration/react";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -41,8 +42,10 @@ const router = createBrowserRouter(
 );
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
+    <PersistGate loading={null} persistor={persistor}>
+      <React.StrictMode>
+        <RouterProvider router={router} />
+      </React.StrictMode>
+    </PersistGate>
   </Provider>
 );
