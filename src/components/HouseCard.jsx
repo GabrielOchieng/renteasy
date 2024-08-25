@@ -12,7 +12,7 @@ const HouseCard = ({ house, onViewDetails }) => {
 
   const [deleteHouse, { isLoading }] = useDeleteHouseMutation();
 
-  const isLandlord = house.landlord === userInfo.user._id;
+  const isLandlord = house?.landlord === userInfo?.user._id;
 
   const handleDelete = async () => {
     if (!userInfo) return;

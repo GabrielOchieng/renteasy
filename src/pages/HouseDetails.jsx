@@ -138,7 +138,9 @@ const HouseDetails = () => {
         ) : (
           <div className="w-full flex justify-between mt-4 border rounded items-center p-4">
             <IoPersonCircleOutline className="h-48 w-48" />
-            <Link to="/login">Login to view more information</Link>
+            <Link to="/login" className="text-green-400 hover:underline">
+              Login to view more information
+            </Link>
           </div>
         ))}
     </div>

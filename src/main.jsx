@@ -28,12 +28,12 @@ const router = createBrowserRouter(
       <Route index path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/houses/:houseId" element={<HouseDetails />} />
+      <Route path="/houses" element={<HouseListPage />} />
+      <Route path="/filter/:filter" element={<SelectedItems />} />
 
       <Route element={<PrivateRoutes />}>
         <Route path="/create" element={<HouseForm />} />
-        <Route path="/houses/:houseId" element={<HouseDetails />} />
-        <Route path="/houses" element={<HouseListPage />} />
-        <Route path="/filter/:filter" element={<SelectedItems />} />
         <Route path="/chats" element={<ChatPage />} />
         <Route path="/:userId/houses" element={<UserHousesPage />} />
       </Route>
