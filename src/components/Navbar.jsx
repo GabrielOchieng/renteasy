@@ -46,7 +46,13 @@ const Navbar = () => {
 
   return (
     <div className="bg-white w-full flex   justify-between pl-5 shadow-md">
-      {isOpen && <Sidebar toggleSidebar={toggleSidebar} isOpen={isOpen} />}
+      {isOpen && (
+        <Sidebar
+          toggleSidebar={toggleSidebar}
+          isOpen={isOpen}
+          userId={userId}
+        />
+      )}
       <div className="flex gap-2 py-4 items-center ">
         <button onClick={toggleSidebar}>
           <HiOutlineMenuAlt1 className="text-2xl font-bold cursor-pointer" />

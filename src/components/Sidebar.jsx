@@ -5,15 +5,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../redux/slices/AuthSlice";
 import { Link } from "react-router-dom";
 
-const items = [
-  { name: "Houses For Rent", url: "/houses" },
-  { name: "Homes for Rent", url: "/houses" },
-  { name: "Contact Us", url: "/" },
-  { name: "Help Center", url: "/" },
-];
-
 // const Sidebar = ({ children, isOpen, toggleSidebar }) => {
-const Sidebar = ({ toggleSidebar, isOpen }) => {
+const Sidebar = ({ toggleSidebar, isOpen, userId }) => {
+  const items = [
+    { name: "Houses For Rent", url: "/houses" },
+    { name: "Homes for Rent", url: "/houses" },
+    {
+      name: "My houses",
+      url: `/${userId}/houses`,
+    },
+    { name: "Contact Us", url: "/" },
+  ];
+
   const { userInfo } = useSelector((state) => state.auth);
   const [logOutApiCall] = useLogoutMutation();
   const dispatch = useDispatch();
@@ -54,7 +57,7 @@ const Sidebar = ({ toggleSidebar, isOpen }) => {
       <nav className="px-4 pt-4 flex flex-col gap-4">
         {items.map((item, index) => (
           <div
-            className="flex items-center gap-2 hover:bg-green-400 w-full pl-2"
+            className="flex items-center gap-2 hover:underline w-full pl-2"
             key={index}
           >
             {" "}
@@ -74,7 +77,7 @@ const Sidebar = ({ toggleSidebar, isOpen }) => {
           <div className="">
             <Link
               to={userInfo ? "/create" : "/login"}
-              className=" hover:underline text-green-400"
+              className=" hover:underline"
             >
               Add Property
             </Link>
@@ -87,7 +90,7 @@ const Sidebar = ({ toggleSidebar, isOpen }) => {
               </Link>
             </div>
           ) : (
-            <div className="py-4 px-5">
+            <div className="hover:underline">
               <Link to="/login">Sign in</Link>
             </div>
           )}
