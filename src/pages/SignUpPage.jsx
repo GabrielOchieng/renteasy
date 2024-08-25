@@ -58,7 +58,7 @@ const Signup = () => {
         backgroundSize: "cover",
       }}
     >
-      <div className="w-full max-w-md p-8 bg-white rounded shadow-lg">
+      <div className="w-[90%] md:w-full max-w-md p-8 bg-white rounded shadow-lg">
         <h1 className="text-2xl font-bold text-center mb-4">Sign Up</h1>
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div className="flex flex-col">
