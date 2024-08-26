@@ -39,7 +39,7 @@ const UserHousesPage = () => {
     <div className="bg-gray-100 w-full">
       <div className="container mx-auto px-4 py-10 ">
         <h1 className="font-bold mb-3">Your Listed Houses</h1>
-        {houses === undefined ? (
+        {houses === undefined || houses?.length < 1 ? (
           <div className="h-screen font-bold p-10">
             You have no listed houses.
           </div>
