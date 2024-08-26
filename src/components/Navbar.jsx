@@ -12,8 +12,6 @@ const Navbar = () => {
 
   const userId = userInfo?.user._id;
 
-  console.log(userInfo);
-
   const items = [
     {
       name: "Rentals",

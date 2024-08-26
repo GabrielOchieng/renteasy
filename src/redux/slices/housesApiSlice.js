@@ -1,6 +1,7 @@
 import { apiSlice } from "./apiSlice";
 
-const HOUSES_URL = "http://localhost:5000/houses";
+// const HOUSES_URL = "http://localhost:5000/houses";
+const HOUSES_URL = "https://rent-api-7hnw.onrender.com/houses";
 
 export const housesApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({

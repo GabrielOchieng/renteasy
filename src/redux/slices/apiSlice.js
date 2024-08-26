@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://localhost:5000",
-  // baseUrl: "https://swap-society-api.onrender.com",
+  // baseUrl: "http://localhost:5000",
+  baseUrl: "https://rent-api-7hnw.onrender.com",
 
   prepareHeaders: (headers, { getState }) => {
     const authState = getState().auth; // Access auth state

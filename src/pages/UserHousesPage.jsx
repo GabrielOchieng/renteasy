@@ -8,7 +8,6 @@ import HouseCard from "../components/HouseCard";
 const UserHousesPage = () => {
   const { userId } = useParams(); // Get user ID from route parameters
   const { data: houses, isLoading } = useGetUserHousesQuery(userId);
-  console.log(houses);
   const [
     deleteProduct,
     { isLoading: isDeleting, isSuccess, error: deleteError },
@@ -30,6 +29,12 @@ const UserHousesPage = () => {
     }
   };
 
+  const handleViewDetails = (houseId) => {
+    // Navigate to the house details page using a routing library (e.g., React Router)
+    const pathToDetailsPage = `/houses/${houseId}`; // Replace with your actual path
+    window.location.href = pathToDetailsPage; // Basic navigation for demonstration
+  };
+
   return (
     <div className="bg-gray-100 w-full">
       <div className="container mx-auto px-4 py-10 ">
@@ -44,6 +49,7 @@ const UserHousesPage = () => {
               <HouseCard
                 key={house._id}
                 house={house}
+                onViewDetails={() => handleViewDetails(house._id)}
                 onDelete={() => handleDeleteHouse(house._id)} // Pass handleDeleteHouse function with house ID
               />
             ))}

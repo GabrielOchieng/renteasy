@@ -22,8 +22,8 @@ const ChatPage = () => {
   const scrollRef = useRef();
 
   useEffect(() => {
-    socket.current = io("ws://localhost:5000");
-    // socket.current = io.connect("https://swap-society-api.onrender.com");
+    // socket.current = io("ws://localhost:5000");
+    socket.current = io.connect("https://rent-api-7hnw.onrender.com");
 
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
@@ -51,8 +51,8 @@ const ChatPage = () => {
     const getConversations = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/conversations/" + user?._id
-          //   "https://swap-society-api.onrender.com/conversations/" + user?._id
+          // "http://localhost:5000/conversations/" + user?._id
+          "https://rent-api-7hnw.onrender.com/conversations/" + user?._id
         );
 
         setConversations(response.data);
@@ -68,8 +68,8 @@ const ChatPage = () => {
     const getMessages = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/messages/${currentChat?._id}`
-          // `https://swap-society-api.onrender.com/messages/${currentChat?._id}`
+          // `http://localhost:5000/messages/${currentChat?._id}`
+          `https://rent-api-7hnw.onrender.com/messages/${currentChat?._id}`
         );
         setMessages(res.data);
       } catch (err) {
@@ -99,8 +99,8 @@ const ChatPage = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/messages",
-        // "https://swap-society-api.onrender.com/messages",
+        // "http://localhost:5000/messages",
+        "https://rent-api-7hnw.onrender.com/messages",
         message
       );
       setMessages([...messages, res.data]);
@@ -117,7 +117,8 @@ const ChatPage = () => {
   const markMessageAsRead = async (messageId) => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/messages/${messageId}/mark-as-read`
+        // `http://localhost:5000/messages/${messageId}/mark-as-read`
+        `https://rent-api-7hnw.onrender.com/messages/${messageId}/mark-as-read`
       );
       console.log("Message marked as read:", response.data);
     } catch (error) {

@@ -41,8 +41,9 @@ const HouseDetails = () => {
     if (userInfo) {
       try {
         const response = await axios.post(
-          "http://localhost:5000/conversations",
-          // "https://swap-society-api.onrender.com/conversations",
+          // "http://localhost:5000/conversations",
+          "https://rent-api-7hnw.onrender.com/conversations",
+
           {
             senderId: user?._id,
             receiverId: landlord?._id,

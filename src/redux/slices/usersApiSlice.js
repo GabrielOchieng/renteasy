@@ -1,4 +1,5 @@
-const USERS_URL = "http://localhost:5000/users";
+// const USERS_URL = "http://localhost:5000/users";
+const USERS_URL = "https://rent-api-7hnw.onrender.com/users";
 import { apiSlice } from "./apiSlice";
 
 export const usersApiSlice = apiSlice.injectEndpoints({

@@ -14,7 +14,6 @@ const HouseList = () => {
   const [estate, setEstate] = useState(""); // State for estates
   //   const dispatch = useDispatch();
   const { data: houses } = useGetHousesQuery();
-  console.log(houses);
 
   useEffect(() => {
     setFilteredHouses(houses);
