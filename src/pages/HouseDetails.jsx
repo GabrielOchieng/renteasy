@@ -1,4 +1,3 @@
-"use client";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import axios from "axios";
 // import home from "../assets/images/homebg.jpeg";

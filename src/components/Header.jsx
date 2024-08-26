@@ -1,5 +1,5 @@
 import { useState } from "react";
-import backgroundImg from "../assets/images/backgroundImg.jpg";
+import backgroundImg from "../assets/images/backgroundimg.jpg";
 import HouseSearchModal from "./HouseSearchModal";
 import { useGetHousesQuery } from "../redux/slices/housesApiSlice";
 
