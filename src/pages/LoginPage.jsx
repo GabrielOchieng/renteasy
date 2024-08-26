@@ -1,5 +1,4 @@
-import backgroundImg from "../assets/images/backgroundImg.jpg";
-
+import backgroundImg from "../assets/images/backgroundimg.jpg";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";

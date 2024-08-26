@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 
-import backgroundImg from "../assets/images/backgroundImg.jpg";
+import backgroundImg from "../assets/images/backgroundimg.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { useRegisterMutation } from "../redux/slices/usersApiSlice";
