@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useLoginMutation } from "../redux/slices/usersApiSlice";
 import { toast } from "react-toastify";
 import { setCredentials } from "../redux/slices/AuthSlice";
-// import FadeLoader from "react-spinners/FadeLoader";
+import FadeLoader from "react-spinners/FadeLoader";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -90,7 +90,7 @@ const LoginPage = () => {
               className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
             />
           </div>
-          {isLoading && <>Loading...</>}
+          {isLoading && <FadeLoader />}
           <button
             type="submit"
             className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400"
