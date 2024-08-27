@@ -59,7 +59,9 @@ const Navbar = () => {
         <p>Menu</p>
       </div>
       <Link to="/">
-        <h1 className="font-bold text-2xl   text-green-400  py-4">RENTEASY</h1>
+        <h1 className="font-bold text-2xl mr-2   text-green-400  py-4">
+          RENTEASY
+        </h1>
       </Link>
       <div className="  hidden md:flex gap-3 ">
         {items.map((item, index) => {
