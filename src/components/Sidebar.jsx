@@ -1,4 +1,3 @@
-"use client";
 import { useLogoutMutation } from "../redux/slices/usersApiSlice";
 import { IoIosArrowForward } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
@@ -36,7 +35,9 @@ const Sidebar = ({ toggleSidebar, isOpen, userId }) => {
       } `}
     >
       <div className="flex items-center justify-between h-16 px-4 bg-gray-900 text-white">
-        <h1 className="text-xl font-bold text-green-400">RENTEASY</h1>
+        <Link to="/">
+          <h1 className="text-xl font-bold text-green-400">RENTEASY</h1>
+        </Link>
         <button onClick={toggleSidebar} className="focus:outline-none ">
           <svg
             className="h-6 w-6 text-white"
