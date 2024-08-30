@@ -41,9 +41,13 @@ const HouseCard = ({ house, onViewDetails }) => {
       />
 
       <div className="flex justify-between items-center">
-        <span className="text-gray-700 font-bold"> {propertyType}</span>
+        <span className="text-gray-700">
+          Type: <span className="font-bold">{propertyType}</span>{" "}
+        </span>
 
-        <span className="text-gray-700">Rent: Ksh.{rentPrice}/month</span>
+        <span className="text-gray-700">
+          Rent: <span className="font-bold">Ksh.{rentPrice}/month</span>
+        </span>
         {/* <span className="text-gray-700">Bedrooms: {bedrooms}</span> */}
         {/* <span className="text-gray-700"> {street}</span> */}
       </div>
@@ -51,8 +55,12 @@ const HouseCard = ({ house, onViewDetails }) => {
         {/* <span className="text-gray-700 font-bold"> {propertyType}</span> */}
 
         {/* <span className="text-gray-700">Rent: Ksh.{rentPrice}/month</span> */}
-        <span className="text-gray-700">Location: {town}</span>
-        <span className="text-gray-700"> {estate}</span>
+        <span className="text-gray-700">
+          Location: <span className="font-bold">{town}</span>
+        </span>
+        <span className="text-gray-700">
+          Estate: <span className="font-bold">{estate}</span>
+        </span>
       </div>
       {/* <p className="text-gray-600 line-clamp-2"></p> */}
       <button

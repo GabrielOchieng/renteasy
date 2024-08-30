@@ -224,7 +224,7 @@ const HouseList = () => {
         </form>
       </div>
 
-      <div className="bg-gray-200 px-4 py-8">
+      <div className="bg-gray-200 px-4 py-8 min-h-screen">
         <h1 className="text-3xl font-bold mb-4">Available Properties</h1>
         {filteredHouses?.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
