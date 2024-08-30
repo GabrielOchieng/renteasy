@@ -4,6 +4,7 @@ import {
   useGetUserHousesQuery,
 } from "../redux/slices/housesApiSlice";
 import HouseCard from "../components/HouseCard";
+import HouseCardSkeleton from "../components/HouseCardSkeleton";
 
 const UserHousesPage = () => {
   const { userId } = useParams(); // Get user ID from route parameters
@@ -14,7 +15,12 @@ const UserHousesPage = () => {
   ] = useDeleteHouseMutation();
 
   if (isLoading) {
-    return <div>Loading User Houses...</div>;
+    return (
+      <div>
+        {" "}
+        <HouseCardSkeleton />
+      </div>
+    );
   }
 
   // if (error) {

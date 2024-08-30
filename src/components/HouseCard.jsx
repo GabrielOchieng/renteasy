@@ -14,8 +14,6 @@ const HouseCard = ({ house, onViewDetails }) => {
 
   const isLandlord = house?.landlord._id === userInfo?.user._id;
 
-  console.log(isLandlord);
-
   const handleDelete = async () => {
     if (!userInfo) return;
     if (window.confirm("Are you sure you want to delete this house?")) {

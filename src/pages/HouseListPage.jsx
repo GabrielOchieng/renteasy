@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 // import { useDispatch } from "react-redux";
 import { useGetHousesQuery } from "../redux/slices/housesApiSlice";
 import HouseCard from "../components/HouseCard";
+import HouseCardSkeleton from "../components/HouseCardSkeleton";
 
 const HouseList = () => {
   const [filteredHouses, setFilteredHouses] = useState([]); // State for filtered properties
@@ -12,7 +13,7 @@ const HouseList = () => {
   const [town, setTown] = useState(""); // State for towns
   const [estate, setEstate] = useState(""); // State for estates
   //   const dispatch = useDispatch();
-  const { data: houses } = useGetHousesQuery();
+  const { data: houses, isLoading } = useGetHousesQuery();
 
   useEffect(() => {
     setFilteredHouses(houses);
@@ -89,6 +90,15 @@ const HouseList = () => {
     const pathToDetailsPage = `/houses/${houseId}`; // Replace with your actual path
     window.location.href = pathToDetailsPage; // Basic navigation for demonstration
   };
+
+  if (isLoading) {
+    return (
+      <div>
+        {" "}
+        <HouseCardSkeleton />
+      </div>
+    );
+  }
 
   return (
     <div className="mx-auto  pt-8 ">
