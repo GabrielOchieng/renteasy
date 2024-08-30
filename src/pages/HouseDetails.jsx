@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { useGetHouseQuery } from "../redux/slices/housesApiSlice";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Map from "../components/Map";
+import HouseDetailsSkeleton from "../components/HouseDetailsSkeleton";
 
 const HouseDetails = () => {
   const { userInfo } = useSelector((state) => state.auth);
@@ -26,7 +27,7 @@ const HouseDetails = () => {
   // }, [data]);
 
   if (isLoading) {
-    return <p className="text-center p-4">Loading house details...</p>;
+    return <HouseDetailsSkeleton />;
   }
 
   if (error) {
