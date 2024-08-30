@@ -227,7 +227,7 @@ const HouseList = () => {
           </div>
           <button
             type="submit"
-            className="inline-flex mb-5 items-center px-4 py-2 bg-indigo-500 hover:bg-indigo-700 text-white font-bold rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="inline-flex mb-5 items-center px-4 py-2 bg-green-500 hover:bg-green-700 text-white font-bold rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Filter Properties
           </button>

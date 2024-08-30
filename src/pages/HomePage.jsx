@@ -8,7 +8,7 @@ import Streets from "../components/Streets";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="bg-gray-50">
       <Header />
       <Explore />
       <Listing />

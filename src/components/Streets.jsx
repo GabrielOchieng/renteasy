@@ -87,22 +87,24 @@ const Streets = () => {
   const handleViewMore = () => {
     setShowMore(!showMore);
   };
-  return (
-    <div className="flex flex-col items-center py-10">
-      <div>
-        <h1 className="font-bold text-4xl underline">GET HOUSES BY:</h1>
-      </div>
 
-      <div className="flex flex-wrap gap-4 md:gap-0 w-[100%] mx-auto justify-center   p-10">
+  return (
+    <div className="flex flex-col items-center py-12 bg-gray-100">
+      <h1 className="text-4xl font-bold mb-6 text-center">GET HOUSES BY:</h1>
+
+      <div className="flex flex-wrap gap-6 md:gap-8 w-full max-w-6xl mx-auto p-4">
         {listToShow.map((list, index) => (
-          <div key={index} className="text-xs w-[45%] md:w-[23%]">
-            {<h2 className="font-bold mb-2">{titles[index]}</h2>}
-            <ul className="flex flex-col justify-center">
+          <div key={index} className="w-full sm:w-1/2 md:w-1/4 lg:w-[22%]">
+            <h2 className="text-xl font-semibold mb-4 text-gray-800">
+              {titles[index]}
+            </h2>
+            <ul className="list-disc pl-5 space-y-2">
               {list.map((item) => (
                 <li key={item}>
-                  {" "}
-                  {/* Use item itself as key */}
-                  <Link to={`/filter/${item}`} className="hover:underline">
+                  <Link
+                    to={`/filter/${item}`}
+                    className="text-green-600 hover:underline"
+                  >
                     {item}
                   </Link>
                 </li>
@@ -111,19 +113,20 @@ const Streets = () => {
           </div>
         ))}
       </div>
-      <div>
+
+      <div className="mt-6">
         <button
-          type="submit"
-          className={` p-3 w-32 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400 ${
-            showMore ? "hidden" : ""
+          type="button"
+          className={`bg-green-500 text-white p-2 w-32 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400 transition-transform transform ${
+            showMore ? "hidden" : "block"
           }`}
           onClick={handleViewMore}
         >
           Show more...
         </button>
         <button
-          type="submit"
-          className={` p-3 w-32 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400 ${
+          type="button"
+          className={`bg-green-500 text-white p-2 w-32 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400 transition-transform transform ${
             showMore ? "block" : "hidden"
           }`}
           onClick={handleViewMore}

@@ -62,7 +62,7 @@ const HouseCard = ({ house, onViewDetails }) => {
       </div>
       {/* <p className="text-gray-600 line-clamp-2"></p> */}
       <button
-        className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400"
+        className="w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400"
         onClick={() => onViewDetails()} // Call onViewDetails prop function on click
       >
         View Details
