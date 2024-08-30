@@ -1,13 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useGetHousesQuery } from "../redux/slices/housesApiSlice";
 import HouseCard from "../components/HouseCard";
+import HouseCardSkeleton from "../components/HouseCardSkeleton";
 
 const SelectedItems = () => {
-  const { data: houses } = useGetHousesQuery();
+  const { data: houses, isLoading } = useGetHousesQuery();
 
-  console.log(houses);
   const { filter } = useParams();
-  console.log(`Selected`, filter);
   if (!houses) return null; // Display loading indicator or nothing
 
   //   const filteredHouses = filter
@@ -35,6 +34,10 @@ const SelectedItems = () => {
     const pathToDetailsPage = `/houses/${houseId}`; // Replace with your actual path
     window.location.href = pathToDetailsPage; // Basic navigation for demonstration
   };
+
+  if (isLoading) {
+    return <HouseCardSkeleton />;
+  }
 
   return (
     <div className="pt-3 min-h-screen">

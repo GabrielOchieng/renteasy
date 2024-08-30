@@ -31,48 +31,45 @@ const items = [
     type: "Bedsitter",
   },
 ];
-
 const Explore = () => {
   return (
-    <div className="flex flex-col mx-auto pt-10 pb-8 items-center gap-5 md:gap-10 justify-between">
-      <div>
-        <h1 className="font-bold text-2xl md:text-4xl">
+    <section className="py-10">
+      <div className="text-center mb-8">
+        <h1 className="font-bold text-3xl md:text-4xl">
           Explore Rentals in Nairobi
         </h1>
       </div>
-      <div className="flex flex-wrap  md:flex-nowrap items-center gap-4">
-        {items.map((item, index) => {
-          return (
-            <div
-              key={index}
-              className="flex mx-auto flex-col border border-green-400 rounded-md w-[45%]  md:w-1/4 gap-4 pb-4 hover:scale-110 transition duration-300 ease-in-out"
-            >
-              <img
-                src={item.image.home}
-                width={250}
-                height={250}
-                alt="House image"
-                className="rounded-t-md"
-              />
-              <div className="flex  flex-col ml-4 ">
-                <h1 className="font-bold text-center mb-3">{item.title}</h1>
-                <p className="text-center">{item.street}</p>
-                <p className="text-center">{item.address}</p>
-                <p className="text-center">{item.type}</p>
-              </div>
+      <div className="flex flex-wrap gap-6 justify-center">
+        {items.map((item, index) => (
+          <div
+            key={index}
+            className="w-[90%] sm:w-1/2 md:w-1/4 lg:w-[22%] bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
+          >
+            <img
+              src={item.image.home}
+              alt={item.title}
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-4">
+              <h2 className="font-semibold text-lg mb-2 text-center">
+                {item.title}
+              </h2>
+              <p className="text-center text-gray-600">{item.street}</p>
+              <p className="text-center text-gray-600">{item.address}</p>
+              <p className="text-center text-gray-600">{item.type}</p>
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
-      <div>
-        <button
-          type="submit"
-          className=" bg-green-400 hover:bg-green-900 text-white font-bold p-3 w-32 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400"
+      <div className="text-center mt-8">
+        <Link
+          to="/houses"
+          className="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
         >
-          <Link to="/houses">View more</Link>
-        </button>
+          View More
+        </Link>
       </div>
-    </div>
+    </section>
   );
 };
 
