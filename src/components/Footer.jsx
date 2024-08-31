@@ -1,162 +1,155 @@
-// import React from "react";
-// import { Link } from "react-router-dom";
-// import { FaLinkedinIn } from "react-icons/fa";
-// import { FaSquareXTwitter } from "react-icons/fa6";
-// import { FaGithubSquare } from "react-icons/fa";
-
-// const Footer = () => {
-//   return (
-//     <footer className="bg-gray-900 text-green-400 py-4 text-center">
-//       <Link to="/">RENTEASY.COM</Link>
-
-//       <p className="text-white">Copyright &copy; THEGABRIELSHOW 2024.</p>
-//       <nav className="flex justify-center mt-2 space-x-4">
-//         <Link
-//           to="https://www.linkedin.com/in/gabrielochieng"
-//           target="_blank"
-//           className="text-green-400 hover:text-cyan-500 "
-//         >
-//           <FaLinkedinIn />
-//         </Link>
-//         <Link
-//           to="https://x.com/TechieGabriel?t=D8iyVIeZnEVOlPdImbJ2HQ&s=09"
-//           target="_blank"
-//           className="text-green-400 hover:text-cyan-500 "
-//         >
-//           <FaSquareXTwitter />
-//         </Link>
-//         <Link
-//           to="https://github.com/GabrielOchieng"
-//           target="_blank"
-//           className="text-green-400 hover:text-cyan-500 "
-//         >
-//           <FaGithubSquare />
-//         </Link>
-//       </nav>
-//       <p className="text-white">ALL RIGHTS RESERVED</p>
-//     </footer>
-//   );
-// };
-
-// export default Footer;
-
 import React from "react";
-import { Link } from "react-router-dom";
-import { FaLinkedinIn } from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
-import { FaGithubSquare } from "react-icons/fa";
-import { FaLocationDot } from "react-icons/fa6";
 
-const Footer = () => {
+const ServicesPage = () => {
   return (
-    <footer className="bg-gray-900 text-green-400">
-      {/* Upper section */}
-      <div className="py-8">
-        <div className="container mx-auto px-4 md:px-8 flex flex-wrap justify-between">
-          {/* Description */}
-          <div className="w-full sm:w-1/2 md:w-1/4 mb-4">
-            <h3 className="text-lg font-semibold text-white">About Us</h3>
-            <p className="mt-2">
-              RENTEASY is your go-to solution for seamless rental experiences.
-              We offer the best deals and a user-friendly platform to find and
-              manage your rental needs.
-            </p>
+    <div className="bg-green-400 min-h-screen py-12">
+      <div className="container mx-auto px-4">
+        {/* Header Section */}
+        <section className="text-center mb-12">
+          <h1 className="text-4xl font-extrabold text-white mb-4">
+            Our Services
+          </h1>
+          <p className="text-lg text-white opacity-80">
+            At Renteasy, we’re committed to making your rental experience smooth
+            and efficient. Whether you're searching for your next home or
+            managing property listings, our platform offers comprehensive
+            services to meet your needs.
+          </p>
+        </section>
+
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Home Listings */}
+          <div className="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
+            <div className="p-6">
+              <h2 className="text-2xl font-semibold text-green-600 mb-4">
+                Home Listings
+              </h2>
+              <p className="text-gray-700 mb-4">
+                Discover a wide range of rental properties tailored to fit your
+                unique preferences. From cozy apartments to spacious homes,
+                Renteasy provides a variety of options to suit your needs.
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-gray-600">
+                <li>
+                  <strong>High-Quality Photos:</strong> Showcase your property
+                  with professional images.
+                </li>
+                <li>
+                  <strong>Detailed Descriptions:</strong> Craft compelling
+                  descriptions emphasizing key features.
+                </li>
+                <li>
+                  <strong>Virtual Tours:</strong> Offer virtual tours and
+                  interactive floor plans.
+                </li>
+                <li>
+                  <strong>Enhanced Visibility:</strong> Boost your property’s
+                  visibility with targeted marketing.
+                </li>
+              </ul>
+            </div>
           </div>
 
-          {/* Navigation */}
-          <div className="w-full sm:w-1/2 md:w-1/4 mb-4">
-            <h3 className="text-lg font-semibold text-white">Navigation</h3>
-            <ul className="mt-2">
-              <li>
-                <Link to="/" className="text-green-400 hover:text-cyan-500">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/about"
-                  className="text-green-400 hover:text-cyan-500"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services"
-                  className="text-green-400 hover:text-cyan-500"
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contact"
-                  className="text-green-400 hover:text-cyan-500"
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
+          {/* Consultation Service */}
+          <div className="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
+            <div className="p-6">
+              <h2 className="text-2xl font-semibold text-green-600 mb-4">
+                Consultation Service
+              </h2>
+              <p className="text-gray-700 mb-4">
+                Receive expert advice to find the perfect rental property or
+                manage your listings effectively. Our team is here to assist you
+                in navigating the rental market.
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-gray-600">
+                <li>
+                  <strong>Personalized Consultations:</strong> Get tailored
+                  advice from experienced professionals.
+                </li>
+                <li>
+                  <strong>Market Insights:</strong> Benefit from in-depth market
+                  analysis.
+                </li>
+                <li>
+                  <strong>Property Evaluation:</strong> Get assistance in
+                  evaluating properties.
+                </li>
+                <li>
+                  <strong>Legal and Financial Advice:</strong> Access guidance
+                  on legal and financial matters.
+                </li>
+              </ul>
+            </div>
           </div>
 
-          {/* Contact Info */}
-          <div className="w-full sm:w-1/2 md:w-1/4 mb-4">
-            <h3 className="text-lg font-semibold text-white">Contact Info</h3>
-            <p className="mt-2">
-              <FaLocationDot className="inline mr-2" />
-              123 Rental St.
-              <br />
-              City, State 12345
-              <br />
-              Email: contact@renteasy.com
-              <br />
-              Phone: (123) 456-7890
-            </p>
+          {/* Home Listing Management */}
+          <div className="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
+            <div className="p-6">
+              <h2 className="text-2xl font-semibold text-green-600 mb-4">
+                Home Listing Management
+              </h2>
+              <p className="text-gray-700 mb-4">
+                Trust our team to handle all aspects of property management,
+                ensuring a smooth and hassle-free experience. From routine
+                maintenance to tenant communication, we’ve got you covered.
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-gray-600">
+                <li>
+                  <strong>User-Friendly Dashboard:</strong> Manage your listings
+                  with ease.
+                </li>
+                <li>
+                  <strong>Real-Time Updates:</strong> Keep your property
+                  information accurate.
+                </li>
+                <li>
+                  <strong>Performance Analytics:</strong> Track the performance
+                  of your listings.
+                </li>
+                <li>
+                  <strong>Flexible Listing Options:</strong> Customize your
+                  listings with featured placements.
+                </li>
+              </ul>
+            </div>
           </div>
 
-          {/* Get in Touch */}
-          <div className="w-full sm:w-1/2 md:w-1/4 mb-4">
-            <h3 className="text-lg font-semibold text-white">Get in Touch</h3>
-            <div className="flex mt-2 space-x-4">
-              <Link
-                to="https://www.linkedin.com/in/gabrielochieng"
-                target="_blank"
-                className="text-green-400 hover:text-cyan-500"
-              >
-                <FaLinkedinIn />
-              </Link>
-              <Link
-                to="https://x.com/TechieGabriel?t=D8iyVIeZnEVOlPdImbJ2HQ&s=09"
-                target="_blank"
-                className="text-green-400 hover:text-cyan-500"
-              >
-                <FaSquareXTwitter />
-              </Link>
-              <Link
-                to="https://github.com/GabrielOchieng"
-                target="_blank"
-                className="text-green-400 hover:text-cyan-500"
-              >
-                <FaGithubSquare />
-              </Link>
+          {/* Rental Opportunities */}
+          <div className="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
+            <div className="p-6">
+              <h2 className="text-2xl font-semibold text-green-600 mb-4">
+                Rental Opportunities
+              </h2>
+              <p className="text-gray-700 mb-4">
+                Explore a diverse range of rental options that cater to various
+                budgets and lifestyles. Find modern apartments, spacious houses,
+                and more.
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-gray-600">
+                <li>
+                  <strong>Wide Range of Options:</strong> Discover rental
+                  properties to fit different budgets.
+                </li>
+                <li>
+                  <strong>Up-to-Date Listings:</strong> Stay informed with the
+                  latest listings.
+                </li>
+                <li>
+                  <strong>Neighborhood Insights:</strong> Get detailed
+                  information about neighborhoods.
+                </li>
+                <li>
+                  <strong>Easy Search Filters:</strong> Utilize advanced search
+                  filters to narrow down your options.
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Separator Line */}
-      <div className="flex justify-center mb-4">
-        <div className="w-11/12 border-t border-gray-700"></div>
-      </div>
-
-      {/* Lower section */}
-      <div className="py-4 text-center">
-        <p className="text-white">
-          Copyright &copy; THEGABRIELSHOW 2024. All Rights Reserved.
-        </p>
-      </div>
-    </footer>
+    </div>
   );
 };
 
-export default Footer;
+export default ServicesPage;

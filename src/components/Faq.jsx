@@ -30,7 +30,7 @@ const faqs = [
   {
     question: "Are there any fees for using Renteasy?",
     answer:
-      "Using Renteasy is currently free for all tenants searching for rental properties. and property managers.",
+      "Using Renteasy is currently free for all tenants searching for rental properties and property managers or landlords listing their properties.",
     id: "5",
   },
   {
@@ -81,7 +81,7 @@ const Faq = () => {
               >
                 <h3 className="text-lg font-semibold">{faq.question}</h3>
                 {shownIndex === index ? (
-                  <CiCircleMinus className="text-green-500 text-2xl" />
+                  <CiCircleMinus className="text-red-500 text-2xl" />
                 ) : (
                   <CiCirclePlus className="text-green-500 text-2xl" />
                 )}
