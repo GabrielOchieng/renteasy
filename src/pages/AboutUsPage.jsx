@@ -30,19 +30,19 @@ const AboutUs = () => {
               <div className="flex flex-wrap gap-6 justify-center">
                 <div className="border border-green-400 rounded-lg p-3 bg-white shadow-lg">
                   <h3 className="text-2xl font-bold text-green-600">
-                    <CountUp end={1000} duration={5} separator="," />+
+                    <CountUp end={1000} duration={10} separator="," />+
                   </h3>
                   <p className="text-gray-600">Listings Available</p>
                 </div>
                 <div className="border border-green-400 rounded-lg p-3 bg-white shadow-lg">
                   <h3 className="text-2xl font-bold text-green-600">
-                    <CountUp end={2000} duration={5} separator="," />+
+                    <CountUp end={2000} duration={10} separator="," />+
                   </h3>
                   <p className="text-gray-600">Active Users</p>
                 </div>
                 <div className="border border-green-400 rounded-lg p-3 bg-white shadow-lg">
                   <h3 className="text-2xl font-bold text-green-600">
-                    <CountUp end={3} duration={5} />+
+                    <CountUp end={3} duration={10} />+
                   </h3>
                   <p className="text-gray-600">Years in Service</p>
                 </div>
