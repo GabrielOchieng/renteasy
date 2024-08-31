@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
+import { Link } from "react-router-dom";
 
 const faqs = [
   {
@@ -47,6 +48,10 @@ const Faq = () => {
     setShownIndex(index === shownIndex ? null : index);
   };
 
+  const handleContactClick = () => {
+    window.location.href = "mailto:ogingagabriel@gmail.com";
+  };
+
   return (
     <div className="container  mx-auto py-12 px-4">
       <section className="text-center mb-12">
@@ -54,17 +59,19 @@ const Faq = () => {
         <p className="text-lg mb-6">
           Everything you need to know about the Renteasy platform and its
           features. Can’t find the answer you’re looking for? Please{" "}
-          <span className="text-blue-500 hover:underline">
-            <a href="#">chat with our friendly team.</a>
+          <span className="text-green-500 hover:underline">
+            <Link onClick={handleContactClick} href="/">
+              Contact us.
+            </Link>
           </span>
         </p>
       </section>
-      <section>
+      <section className="border rounded p-5 shadow-md">
         <div className="space-y-4">
           {faqs.map((faq, index) => (
             <div
               key={faq.id}
-              className="bg-white shadow-md rounded-md overflow-hidden"
+              className="bg-white shadow-sm  rounded-md overflow-hidden"
             >
               <div
                 onClick={() => handleToggle(index)}
