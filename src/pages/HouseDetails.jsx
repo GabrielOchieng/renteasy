@@ -1,59 +1,52 @@
 import { IoPersonCircleOutline } from "react-icons/io5";
 import axios from "axios";
-// import home from "../assets/images/homebg.jpeg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useGetHouseQuery } from "../redux/slices/housesApiSlice";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Map from "../components/Map";
 import HouseDetailsSkeleton from "../components/HouseDetailsSkeleton";
+import Carousel from "../components/Carousel";
 
 const HouseDetails = () => {
   const { userInfo } = useSelector((state) => state.auth);
   const { houseId } = useParams();
   const user = userInfo?.user;
-  //   const [house, setHouse] = useState(null);
-  const [showSellerInfo, setShowSellerInfo] = useState(false); // State for seller info visibility
+  const [showSellerInfo, setShowSellerInfo] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
   const { data, isLoading, error } = useGetHouseQuery(houseId);
 
   const isLandlord = data?.landlord?._id === user?._id;
   const landlord = data?.landlord;
-  // useEffect(() => {
-  //   if (data) {
-  //     setHouse(data); // Update state with fetched house data
-  //   }
-  // }, [data]);
 
   if (isLoading) {
     return <HouseDetailsSkeleton />;
   }
 
   if (error) {
-    return <p className="text-center p-4">Error fetching house details</p>;
+    return (
+      <p className="text-center p-4 text-red-500">
+        Error fetching house details
+      </p>
+    );
   }
 
-  const toggleSellerInfo = () => setShowSellerInfo(!showSellerInfo); // Toggle seller info visibility
+  const toggleSellerInfo = () => setShowSellerInfo(!showSellerInfo);
 
-  // Function to initiate chat with seller
   const handleStartChat = async () => {
     if (userInfo) {
       try {
         const response = await axios.post(
-          // "http://localhost:5000/conversations",
           "https://rent-api-7hnw.onrender.com/conversations",
-
           {
             senderId: user?._id,
             receiverId: landlord?._id,
           }
         );
-
-        console.log(response);
-        // 3. Redirect user to the chat page with the newly created conversation ID
-        // const conversationId = response.data._id;
-        // navigate(`/chats/${conversationId}`);
+        navigate(`/chats/${response.data._id}`);
       } catch (err) {
         console.error("Error creating conversation:", err);
       }
@@ -62,88 +55,127 @@ const HouseDetails = () => {
     }
   };
 
+  const openModal = (image) => {
+    setSelectedImage(image);
+    setShowModal(true);
+    document.body.style.overflow = "hidden"; // Disable scrolling
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setSelectedImage(null);
+    document.body.style.overflow = ""; // Enable scrolling
+  };
+
+  useEffect(() => {
+    // Cleanup on component unmount
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
+
   return (
-    <div className="flex flex-col p-8  mx-auto">
-      <h1 className="text-2xl font-bold mb-4">{data?.propertyType}</h1>
-      <div className="flex gap-3 flex-wrap">
-        {data.images && data.images.length > 0 && (
-          <>
+    <div className="container mx-auto p-6 lg:p-8 bg-white rounded-lg shadow-lg relative my-10">
+      <h1 className="text-3xl font-bold mb-6">{data?.propertyType}</h1>
+
+      {/* Image Carousel or Grid */}
+      <div className="relative">
+        {data.images && data.images.length > 0 ? (
+          data.images.length > 1 ? (
+            <Carousel images={data.images} openModal={openModal} />
+          ) : (
             <img
               src={data.images[0]}
-              alt="House img"
-              className="rounded-lg h-96 w-full object-cover"
-              width={96}
-              height={96}
+              alt="House"
+              className="rounded-lg w-full h-72 object-cover cursor-pointer"
+              onClick={() => openModal(data.images[0])}
             />
-            {data.images.length > 1 && (
-              <img
-                src={data.images[1]}
-                alt="House img"
-                className="rounded-lg h-96 w-full object-cover"
-                width={96}
-                height={96}
-              />
-            )}
-            {data.images.length > 2 && (
-              <img
-                src={data.images[2]}
-                alt="House img"
-                className="rounded-lg object-cover"
-                width={96}
-                height={96}
-              />
-            )}
-          </>
+          )
+        ) : (
+          <img
+            src="https://via.placeholder.com/600x400"
+            alt="Placeholder"
+            className="rounded-lg w-full h-72 object-cover"
+          />
         )}
       </div>
-      <div className="mt-4 flex justify-between lg:justify-evenly border space-y-4  flex-wrap md:flex-nowrap rounded px-4 lg:px-8 py-4">
+
+      <div className="mt-4 flex flex-col lg:flex-row lg:justify-between border border-gray-200 rounded-lg p-6 mb-6 bg-gray-50">
         <Map town={data?.town} />
-        <div className=" ">
-          <p className="text-lg font-medium ">
-            Rent: Ksh.{data?.rentPrice} per month
+        <div className="mt-4 lg:mt-0 lg:ml-6">
+          <p className="text-lg font-semibold mb-2">
+            Rent:{" "}
+            <span className="font-bold">Ksh.{data?.rentPrice} per month</span>
           </p>
-          <p>Bedrooms: {data?.bedrooms}</p>
-          <p>Location: {data?.town}</p>{" "}
-          {/* Assuming town represents location */}
+          <p className="mb-2">Bedrooms: {data?.bedrooms}</p>
+          <p className="mb-2">Location: {data?.town}</p>
           <p>Description: {data?.description}</p>
         </div>
       </div>
-      {/* Seller Information Section */}
+
       <button
-        className="text-green-500 hover:underline mt-4"
+        className="text-green-600 hover:underline mb-4"
         onClick={toggleSellerInfo}
       >
         {showSellerInfo ? "Hide Seller Information" : "Show Seller Information"}
       </button>
 
-      {showSellerInfo &&
-        (userInfo ? (
-          <div className="w-full flex justify-between mt-4 border rounded items-center p-4">
-            <div>
-              <IoPersonCircleOutline className="h-48 w-48 text-green-400" />
-            </div>
-            <div>
-              <p>Landlord Name: {data?.landlord?.name}</p>
-              {!isLandlord && (
-                <Link
-                  to="/chats"
-                  className="text-green-400"
-                  onClick={handleStartChat} // Pass seller ID
-                >
-                  Chat to enquire more
-                </Link>
-              )}
-              {/* <p>Contact Information: {data.contactInfo}</p> */}
-            </div>
+      {showSellerInfo && (
+        <div className="w-full flex items-center border border-gray-300 rounded-lg p-6 bg-white">
+          <IoPersonCircleOutline className="h-16 w-16 text-green-500" />
+          <div className="ml-4">
+            <p className="text-lg font-semibold mb-2">
+              Landlord Name: {data?.landlord?.name}
+            </p>
+            {!isLandlord ? (
+              <Link
+                to="/chats"
+                className="text-green-500 hover:underline"
+                onClick={handleStartChat}
+              >
+                Chat to enquire more
+              </Link>
+            ) : (
+              <p className="text-gray-600">
+                You are the landlord of this property.
+              </p>
+            )}
           </div>
-        ) : (
-          <div className="w-full flex justify-between mt-4 border rounded items-center p-4">
-            <IoPersonCircleOutline className="h-48 w-48" />
-            <Link to="/login" className="text-green-400 hover:underline">
-              Login to view more information
-            </Link>
-          </div>
-        ))}
+        </div>
+      )}
+
+      {!userInfo && (
+        <div className="mt-4 p-4 bg-gray-100 rounded-lg text-center">
+          <p className="text-gray-700">Login to view more information</p>
+          <Link
+            to="/login"
+            className="text-green-500 hover:underline mt-2 block"
+          >
+            Login
+          </Link>
+        </div>
+      )}
+
+      {/* Modal for image preview */}
+      {showModal && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 mb-32"
+          onClick={closeModal}
+        >
+          <img
+            src={selectedImage}
+            alt="Selected"
+            className="max-w-[90%] max-h-[90%] object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <button
+            className="absolute top-4 right-4 text-white text-3xl"
+            onClick={closeModal}
+          >
+            &times;
+          </button>
+        </div>
+      )}
     </div>
   );
 };
