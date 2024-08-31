@@ -2,12 +2,13 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import agent from "../assets/images/agent.jpg"; // Update this path as needed
+import CountUp from "react-countup"; // Import the CountUp component
 
 const AboutUs = () => {
   return (
     <div className="bg-gray-100 text-gray-800">
       {/* Container for content */}
-      <div className="  py-12">
+      <div className="py-12">
         {/* Our Journey Section */}
         <section className="container mx-auto mb-12 py-12 bg-gray-50 text-gray-800">
           <div className="container mx-auto px-4 flex flex-wrap md:flex-nowrap items-center justify-center gap-8">
@@ -28,15 +29,21 @@ const AboutUs = () => {
 
               <div className="flex flex-wrap gap-6 justify-center">
                 <div className="border border-green-400 rounded-lg p-3 bg-white shadow-lg">
-                  <h3 className="text-2xl font-bold text-green-600 ">1k+</h3>
+                  <h3 className="text-2xl font-bold text-green-600">
+                    <CountUp end={1000} duration={5} separator="," />+
+                  </h3>
                   <p className="text-gray-600">Listings Available</p>
                 </div>
                 <div className="border border-green-400 rounded-lg p-3 bg-white shadow-lg">
-                  <h3 className="text-2xl font-bold text-green-600 ">2k+</h3>
+                  <h3 className="text-2xl font-bold text-green-600">
+                    <CountUp end={2000} duration={5} separator="," />+
+                  </h3>
                   <p className="text-gray-600">Active Users</p>
                 </div>
                 <div className="border border-green-400 rounded-lg p-3 bg-white shadow-lg">
-                  <h3 className="text-2xl font-bold text-green-600">3+</h3>
+                  <h3 className="text-2xl font-bold text-green-600">
+                    <CountUp end={3} duration={5} />+
+                  </h3>
                   <p className="text-gray-600">Years in Service</p>
                 </div>
               </div>
