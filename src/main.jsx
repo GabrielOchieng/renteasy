@@ -21,6 +21,7 @@ import ChatPage from "./pages/ChatPage.jsx";
 import SelectedItems from "./pages/SelectedItemsPage.jsx";
 import UserHousesPage from "./pages/UserHousesPage.jsx";
 import { PersistGate } from "redux-persist/integration/react";
+import AboutUs from "./pages/AboutUsPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,6 +32,7 @@ const router = createBrowserRouter(
       <Route path="/houses/:houseId" element={<HouseDetails />} />
       <Route path="/houses" element={<HouseListPage />} />
       <Route path="/filter/:filter" element={<SelectedItems />} />
+      <Route path="/about" element={<AboutUs />} />
 
       <Route element={<PrivateRoutes />}>
         <Route path="/create" element={<HouseForm />} />
