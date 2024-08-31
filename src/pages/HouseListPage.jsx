@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useGetHousesQuery } from "../redux/slices/housesApiSlice";
 import HouseCard from "../components/HouseCard";
 import HouseCardSkeleton from "../components/HouseCardSkeleton";
+import NoHomesFound from "../components/NoHomesFound";
 
 const HouseList = () => {
   const [filteredHouses, setFilteredHouses] = useState([]); // State for filtered properties
@@ -99,6 +100,16 @@ const HouseList = () => {
       </div>
     );
   }
+
+  const resetFilters = () => {
+    setMinRentPrice("");
+    setMaxRentPrice("");
+    setHousePropertyType("");
+    setNumberOfBedrooms("");
+    setTown("");
+    setEstate("");
+    setFilteredHouses(houses); // Reset filtered houses to original data
+  };
 
   return (
     <div className="mx-auto  pt-8 ">
@@ -247,9 +258,12 @@ const HouseList = () => {
             ))}
           </div>
         ) : (
-          <p className="text-center text-gray-500">
-            No properties found matching your criteria.
-          </p>
+          <div>
+            <NoHomesFound resetFilters={resetFilters} />
+          </div>
+          // <p className="text-center text-gray-500">
+          //   No properties found matching your criteria.
+          // </p>
         )}
       </div>
     </div>
