@@ -199,7 +199,7 @@ const Renting = () => {
               <p className="text-gray-700 mb-6">
                 Keep{" "}
                 <Link to="/" className="text-green-500 hover:underline">
-                  Rento.com
+                  Renteasy
                 </Link>{" "}
                 in the palm of your hand throughout your rental journey.
               </p>

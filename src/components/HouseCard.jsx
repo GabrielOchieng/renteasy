@@ -5,84 +5,81 @@ import { toast } from "react-toastify";
 
 const HouseCard = ({ house, onViewDetails }) => {
   const { userInfo } = useSelector((state) => state.auth);
-  // console.log(userInfo);
-  // console.log(house.images[0]);
-  // Assuming house object has properties like address, images, rentPrice
   const { _id, town, estate, images, rentPrice, propertyType } = house;
 
   const [deleteHouse, { isLoading }] = useDeleteHouseMutation();
 
   const isLandlord = userInfo && house?.landlord._id === userInfo?.user?._id;
-  console.log(`isLandlord: ${isLandlord}`);
-
-  console.log(house.landlord);
-
-  console.log(userInfo);
 
   const handleDelete = async () => {
     if (!userInfo) return;
     if (window.confirm("Are you sure you want to delete this house?")) {
       try {
         await deleteHouse(_id);
-        // Handle successful deletion (e.g., remove from UI)
-        console.log("House deleted successfully!");
         toast.success("House deleted successfully!");
       } catch (error) {
         console.error("Error deleting house:", error);
-        // Handle deletion error (e.g., display error message)
+        toast.error("Error deleting house.");
       }
     }
   };
+
   return (
-    <div className="bg-white rounded-md shadow-md p-4 flex flex-col space-y-2">
+    <div className="bg-white rounded-lg shadow-lg overflow-hidden p-4">
       <img
-        src={images && images[0] ? images[0] : home} // Display first photo or placeholder
+        src={images && images[0] ? images[0] : home}
         alt="House"
-        className="w-full h-96 object-cover rounded-t-md"
-        width={48}
-        height={48}
+        className="w-full h-72 object-cover rounded-md"
       />
 
-      <div className="flex justify-between items-center">
-        <span className="text-gray-700">
-          Type: <span className="font-bold">{propertyType}</span>{" "}
-        </span>
+      <div className="">
+        <div className=" mb-2">
+          <span className="text-gray-700 text-lg font-semibold">
+            {propertyType}
+          </span>
+        </div>
+        <div>
+          <p>{house.description}</p>
+        </div>
+        <div className="flex  gap-3 items-center mb-4">
+          <span className="border border-gray-400 rounded-full px-1 text-sm text-gray-800">
+            {town}
+          </span>
 
-        <span className="text-gray-700">
-          Rent: <span className="font-bold">Ksh.{rentPrice}/month</span>
-        </span>
-        {/* <span className="text-gray-700">Bedrooms: {bedrooms}</span> */}
-        {/* <span className="text-gray-700"> {street}</span> */}
-      </div>
-      <div className="flex justify-between items-center">
-        {/* <span className="text-gray-700 font-bold"> {propertyType}</span> */}
+          <span className="border border-gray-400 rounded-full px-1 text-sm text-gray-800">
+            {estate}
+          </span>
+          <span className="border border-gray-400 rounded-full px-1 text-sm text-gray-800">
+            {house.bedrooms} bedrooms
+          </span>
+          <span className="border border-gray-400 rounded-full px-1 text-sm text-gray-800">
+            {house.bathrooms} bathrooms
+          </span>
+        </div>
+        <div className="flex justify-between items-center">
+          <span className="text-gray-700 text-lg font-semibold">
+            Ksh.{rentPrice}/month
+          </span>
+          <button
+            className=" bg-green-500 hover:bg-green-600 text-white font-semibold p-2 rounded-md transition-colors duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400"
+            onClick={onViewDetails}
+          >
+            View Details
+          </button>
+        </div>
 
-        {/* <span className="text-gray-700">Rent: Ksh.{rentPrice}/month</span> */}
-        <span className="text-gray-700">
-          Location: <span className="font-bold">{town}</span>
-        </span>
-        <span className="text-gray-700">
-          Estate: <span className="font-bold">{estate}</span>
-        </span>
+        {isLandlord && (
+          <button
+            className={`w-full mt-2 bg-red-500 hover:bg-red-600 text-white font-semibold py-2 rounded-md transition-colors duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-400 ${
+              isLoading ? "bg-gray-200 text-gray-400 cursor-not-allowed" : ""
+            }`}
+            onClick={handleDelete}
+            disabled={isLoading}
+          >
+            {isLoading ? "Deleting..." : "Delete"}
+          </button>
+        )}
       </div>
-      {/* <p className="text-gray-600 line-clamp-2"></p> */}
-      <button
-        className="w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400"
-        onClick={() => onViewDetails()} // Call onViewDetails prop function on click
-      >
-        View Details
-      </button>
-      {isLandlord && (
-        <button
-          className={`w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-400 ${
-            isLoading ? "bg-gray-200 text-gray-400 cursor-not-allowed" : ""
-          }`}
-          onClick={handleDelete}
-          disabled={isLoading}
-        >
-          {isLoading ? "Deleting..." : "Delete"}
-        </button>
-      )}
     </div>
   );
 };
