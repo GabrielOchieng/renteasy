@@ -67,12 +67,12 @@ const HouseDetails = () => {
     document.body.style.overflow = ""; // Enable scrolling
   };
 
-  useEffect(() => {
-    // Cleanup on component unmount
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, []);
+  // useEffect(() => {
+  //   // Cleanup on component unmount
+  //   return () => {
+  //     document.body.style.overflow = "";
+  //   };
+  // }, []);
 
   return (
     <div className="container mx-auto p-6 lg:p-8 bg-white rounded-lg shadow-lg relative my-10">

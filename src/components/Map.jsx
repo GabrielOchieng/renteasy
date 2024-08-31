@@ -30,8 +30,6 @@ const Map = ({ town }) => {
     fetchCoordinates();
   }, [town]);
 
-  console.log("LOCATION", houseLocation);
-
   useEffect(() => {
     if (!map && houseLocation) {
       const mapInstance = L.map("map").setView(houseLocation, 13); // Adjust zoom level as needed
