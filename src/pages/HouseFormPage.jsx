@@ -142,7 +142,7 @@ const HouseForm = () => {
                 name="street"
                 value={street}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
                 onChange={(e) => setStreet(e.target.value)}
               />
             </div>
@@ -159,7 +159,7 @@ const HouseForm = () => {
                 name="town"
                 value={town}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
                 onChange={(e) => setTown(e.target.value)}
               />
             </div>
@@ -175,7 +175,7 @@ const HouseForm = () => {
                 id="estate"
                 name="estate"
                 value={estate}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
                 onChange={(e) => setEstate(e.target.value)}
               />
             </div>
@@ -192,7 +192,7 @@ const HouseForm = () => {
                 name="zipcode"
                 value={address}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
                 onChange={(e) => setAddress(e.target.value)}
               />
             </div>
@@ -211,7 +211,7 @@ const HouseForm = () => {
               name="propertyType"
               value={propertyType}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
               onChange={(e) => setPropertyType(e.target.value)}
             >
               <option value="">Select Property Type</option>
@@ -242,7 +242,7 @@ const HouseForm = () => {
                 value={bedrooms}
                 required
                 min="1"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
                 onChange={(e) => setBedrooms(e.target.value)}
               />
             </div>
@@ -260,7 +260,7 @@ const HouseForm = () => {
                 value={bathrooms}
                 required
                 min="1"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
                 onChange={(e) => setBathrooms(e.target.value)}
               />
             </div>
@@ -278,7 +278,7 @@ const HouseForm = () => {
                 value={rentPrice}
                 required
                 min="1"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
                 onChange={(e) => setRentPrice(e.target.value)}
               />
             </div>
@@ -296,7 +296,7 @@ const HouseForm = () => {
                 value={contactInfo}
                 required
                 min="1"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
                 onChange={(e) => setContactInfo(e.target.value)}
               />
             </div>
@@ -313,7 +313,7 @@ const HouseForm = () => {
                 value={description}
                 required
                 rows={5}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
                 onChange={(e) => setDescription(e.target.value)}
               />
             </div>
@@ -341,7 +341,7 @@ const HouseForm = () => {
             <div className="my-5 ">
               <button
                 type="submit"
-                className="w-full  bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400"
+                className="w-full  bg-green-500 hover:bg-green-700 text-white font-bold py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400"
               >
                 Add Property
               </button>

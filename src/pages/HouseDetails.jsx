@@ -110,7 +110,7 @@ const HouseDetails = () => {
       </div>
       {/* Seller Information Section */}
       <button
-        className="text-blue-500 hover:underline mt-4"
+        className="text-green-500 hover:underline mt-4"
         onClick={toggleSellerInfo}
       >
         {showSellerInfo ? "Hide Seller Information" : "Show Seller Information"}
@@ -120,14 +120,14 @@ const HouseDetails = () => {
         (userInfo ? (
           <div className="w-full flex justify-between mt-4 border rounded items-center p-4">
             <div>
-              <IoPersonCircleOutline className="h-48 w-48 text-blue-400" />
+              <IoPersonCircleOutline className="h-48 w-48 text-green-400" />
             </div>
             <div>
               <p>Landlord Name: {data?.landlord?.name}</p>
               {!isLandlord && (
                 <Link
                   to="/chats"
-                  className="text-blue-400"
+                  className="text-green-400"
                   onClick={handleStartChat} // Pass seller ID
                 >
                   Chat to enquire more

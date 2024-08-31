@@ -73,7 +73,7 @@ const Signup = () => {
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
             />
           </div>
           <div className="flex flex-col">
@@ -88,7 +88,7 @@ const Signup = () => {
               autoComplete="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
             />
           </div>
           <div className="flex flex-col">
@@ -103,7 +103,7 @@ const Signup = () => {
               autoComplete="current-password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
             />
           </div>
           <div className="flex flex-col">
@@ -121,7 +121,7 @@ const Signup = () => {
               autoComplete="current-password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
             />
           </div>
           <div className="flex flex-col">
@@ -135,7 +135,7 @@ const Signup = () => {
               required
               value={role}
               onChange={(e) => setRole(e.target.value)}
-              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
             >
               <option value="">Select User Type</option>
               <option value="landlord">Landlord</option>
@@ -155,19 +155,19 @@ const Signup = () => {
               autoComplete="phoneNumber"
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
-              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
             />
           </div>
           {isLoading && <FadeLoader />}
           <button
             type="submit"
-            className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400"
+            className="w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400"
           >
             Sign Up
           </button>
           <p className="text-sm text-center mt-4">
             Already have an account?{" "}
-            <Link to="/login" className="text-blue-500 hover:underline">
+            <Link to="/login" className="text-green-500 hover:underline">
               Login
             </Link>
           </p>
