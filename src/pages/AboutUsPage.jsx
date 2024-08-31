@@ -28,15 +28,15 @@ const AboutUs = () => {
 
               <div className="flex flex-wrap gap-6 justify-center">
                 <div className="border border-green-400 rounded-lg p-3 bg-white shadow-lg">
-                  <h3 className="text-2xl font-bold text-green-600 ">50k+</h3>
+                  <h3 className="text-2xl font-bold text-green-600 ">1k+</h3>
                   <p className="text-gray-600">Listings Available</p>
                 </div>
                 <div className="border border-green-400 rounded-lg p-3 bg-white shadow-lg">
-                  <h3 className="text-2xl font-bold text-green-600 ">200k+</h3>
+                  <h3 className="text-2xl font-bold text-green-600 ">2k+</h3>
                   <p className="text-gray-600">Active Users</p>
                 </div>
                 <div className="border border-green-400 rounded-lg p-3 bg-white shadow-lg">
-                  <h3 className="text-2xl font-bold text-green-600">5+</h3>
+                  <h3 className="text-2xl font-bold text-green-600">3+</h3>
                   <p className="text-gray-600">Years in Service</p>
                 </div>
               </div>

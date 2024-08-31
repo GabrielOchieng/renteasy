@@ -8,12 +8,13 @@ import { Link } from "react-router-dom";
 const Sidebar = ({ toggleSidebar, isOpen, userId }) => {
   const items = [
     { name: "Houses For Rent", url: "/houses" },
-    { name: "Homes for Rent", url: "/houses" },
     {
       name: "My houses",
       url: `/${userId}/houses`,
     },
-    { name: "Contact Us", url: "/" },
+    { name: "Services", url: "/services" },
+
+    { name: "About Us", url: "/about" },
   ];
 
   const { userInfo } = useSelector((state) => state.auth);
