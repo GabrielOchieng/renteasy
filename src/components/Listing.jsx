@@ -73,7 +73,7 @@ const Listing = () => {
             </p>
             <Link
               to="/"
-              className="inline-block bg-green-500 text-white text-lg font-semibold py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300"
+              className="inline-block bg-green-500 text-white text-lg font-semibold py-2 px-4 w-44 rounded-lg hover:bg-green-600 transition duration-300"
             >
               Find Out More
             </Link>

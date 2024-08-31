@@ -109,7 +109,7 @@ const Manage = () => {
               </p>
               <Link
                 to="/houses"
-                className="inline-block bg-green-500 text-white text-lg font-semibold py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300"
+                className="inline-block bg-green-500 w-64 text-white text-lg font-semibold py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300"
               >
                 List Your Property
               </Link>
@@ -142,7 +142,7 @@ const Manage = () => {
               </p>
               <Link
                 to="/"
-                className="inline-block bg-green-500 text-white text-lg font-semibold py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300"
+                className="inline-block bg-green-500 w-64 text-white text-lg font-semibold py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300"
               >
                 Manage Your Property
               </Link>
