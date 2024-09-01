@@ -127,7 +127,7 @@ const ChatPage = () => {
   };
 
   return (
-    <div className="messenger flex flex-col md:flex-row pb-32">
+    <div className="messenger flex flex-col md:flex-row md:pb-28">
       <div className="chatMenu w-full md:w-[20%] border-r">
         <div className="chatMenuWrapper px-4">
           <p className="chatMenuInput w-full py-2 border-b border-gray-200 focus:outline-none">
