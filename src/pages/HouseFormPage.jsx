@@ -1,13 +1,8 @@
 import { useRef, useState } from "react";
 import { useCreateHouseMutation } from "../redux/slices/housesApiSlice";
-
-// import { useSelector } from "react-redux";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify"; // Import toast from react-toastify
 
 const HouseForm = () => {
-  // const { userInfo } = useSelector((state) => state.auth);
-  // console.log(userInfo);
-
   const [street, setStreet] = useState("");
   const [town, setTown] = useState("");
   const [estate, setEstate] = useState("");
@@ -20,31 +15,59 @@ const HouseForm = () => {
   const [description, setDescription] = useState("");
   const [contactInfo, setContactInfo] = useState("");
 
-  //   const dispatch = useDispatch();
   const [createHouse] = useCreateHouseMutation();
-
-  // Hidden input to store previously selected files
   const hiddenFileInputRef = useRef(null);
-
-  // const handlePhotoChange = (e) => {
-  //   const newPhotos = e.target.files;
-  //   // for (let i = 0; i < e.target.files.length; i++) {
-  //   //   newPhotos.push(e.target.files[i]);
-
-  //   //   // newPhotos.push(URL.createObjectURL(e.target.files[i]));
-  //   // }
-  //   setPhotosimages, ...newPhotos]);
-  //   console.log(newPhotos);
-  // };
 
   const handleClick = () => {
     hiddenFileInputRef.current.click();
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   const formData = new FormData();
+  //   formData.append("street", street);
+  //   formData.append("town", town);
+  //   formData.append("estate", estate);
+  //   formData.append("address", address);
+  //   formData.append("propertyType", propertyType);
+  //   formData.append("bedrooms", bedrooms);
+  //   formData.append("bathrooms", bathrooms);
+  //   formData.append("rentPrice", rentPrice);
+  //   formData.append("description", description);
+  //   formData.append("contactInfo", contactInfo);
+  //   for (let i = 0; i < images.length; i++) {
+  //     formData.append("images", images[i]);
+  //   }
+
+  //   try {
+  //     const response = await createHouse(formData);
+  //     console.log("RESPONSE", response);
+
+  //     // Show success toast notification
+  //     toast.success("House created successfully!");
+
+  //     // Clear form fields
+  //     setStreet("");
+  //     setTown("");
+  //     setEstate("");
+  //     setAddress("");
+  //     setPropertyType("");
+  //     setBedrooms(0);
+  //     setBathrooms(0);
+  //     setRentPrice(0);
+  //     setImages([]);
+  //     setDescription("");
+  //     setContactInfo("");
+  //   } catch (err) {
+  //     console.log(err);
+  //     toast.error("Error creating house. Please try again.");
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Prepare the data for the mutation (including images)
     const formData = new FormData();
     formData.append("street", street);
     formData.append("town", town);
@@ -56,69 +79,44 @@ const HouseForm = () => {
     formData.append("rentPrice", rentPrice);
     formData.append("description", description);
     formData.append("contactInfo", contactInfo);
-    // Append each selected image to the formData
     for (let i = 0; i < images.length; i++) {
       formData.append("images", images[i]);
     }
 
     try {
       const response = await createHouse(formData);
-      console.log("RESPONSE", response);
 
-      // navigate("/products"); // Redirect after successful creation
+      // Check if the response indicates success
+      if (response && response.error === undefined) {
+        // Show success toast notification
+        toast.success("House created successfully!");
+
+        // Clear form fields
+        setStreet("");
+        setTown("");
+        setEstate("");
+        setAddress("");
+        setPropertyType("");
+        setBedrooms(0);
+        setBathrooms(0);
+        setRentPrice(0);
+        setImages([]);
+        setDescription("");
+        setContactInfo("");
+      } else {
+        // Handle case where response is not successful
+        throw new Error("Failed to create house");
+      }
     } catch (err) {
       console.log(err);
-      // Handle errors appropriately (e.g., display error message to user)
+      toast.error("Error creating house. Please try again.");
     }
   };
 
   const handleImageChange = (e) => {
-    // setImages(e.target.files); // Update the images state with selected files
     setImages([...images, ...e.target.files]);
   };
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const formData = new FormData(); // For handling image uploads
-  //   // formData.append("landlord", userInfo.name);
-  //   formData.append("street", street);
-  //   formData.append("town", town);
-  //   formData.append("estate", estate);
-  //   formData.append("address", address);
-  //   formData.append("propertyType", propertyType);
-  //   formData.append("bedrooms", bedrooms);
-  //   formData.append("bathrooms", bathrooms);
-  //   formData.append("rentPrice", rentPrice);
-  //   formData.append("description", description);
-  //   formData.append("contactInfo", contactInfo);
 
-  //   // Handle image uploads (replace with your upload logic)
-  //   for (let i = 0;images.length; i++) {
-  //     formData.appimages[i]);
-  //   }
-
-  //   try {
-  //     const response = await createHouse(formData);
-  //     if (response.error) {
-  //       console.error("House creation error:", response.error);
-  //       toast.error("An error occurred while adding the house.");
-  //     } else {
-  //       console.log("House created successfully:", response.data);
-  //       toast.success("House added successfully!");
-  //       // Reset form after successful submission (optional)
-
-  //       setStreet("");
-  //       // ... reset other fields
-  //     }
-  //   } catch (error) {
-  //     console.error("House creation error:", error);
-  //     toast.error("An error occurred while adding the house.");
-  //   }
-  // };
-
-  // // Handle individual form field updates (similar for other fields)
-  // //   const handleAddressChange = (e) => {
-  // //     setAddress({ ...address, [e.target.name]: e.target.value });
-  // //   };
   return (
     <div className="flex flex-col pt-4 gap-3 w-full bg-gray-300">
       <div className="">
