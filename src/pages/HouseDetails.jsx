@@ -46,7 +46,8 @@ const HouseDetails = () => {
             receiverId: landlord?._id,
           }
         );
-        navigate(`/chats/${response.data._id}`);
+        // const conversationId = response.data._id
+        // navigate(`/chats/${conversationId}`);
       } catch (err) {
         console.error("Error creating conversation:", err);
       }
@@ -129,7 +130,7 @@ const HouseDetails = () => {
             </p>
             {!isLandlord ? (
               <Link
-                to="/chats"
+                to={`/chats`}
                 className="text-green-500 hover:underline"
                 onClick={handleStartChat}
               >
