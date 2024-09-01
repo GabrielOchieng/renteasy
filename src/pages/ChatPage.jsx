@@ -127,14 +127,12 @@ const ChatPage = () => {
   };
 
   return (
-    <div className="messenger flex flex-col md:flex-row">
+    <div className="messenger flex flex-col md:flex-row pb-32">
       <div className="chatMenu w-full md:w-[20%] border-r">
         <div className="chatMenuWrapper px-4">
-          <input
-            type="text"
-            placeholder="Search for friends"
-            className="chatMenuInput w-full py-2 border-b border-gray-200 focus:outline-none"
-          />
+          <p className="chatMenuInput w-full py-2 border-b border-gray-200 focus:outline-none">
+            Chat list
+          </p>
           {conversations.map((c) => (
             <div
               key={c._id}
@@ -171,7 +169,7 @@ const ChatPage = () => {
                   </div>
                 ))}
               </div>
-              <div className="chatBoxBottom flex items-center justify-between px-4 py-2">
+              <div className="chatBoxBottom flex flex-1 items-end justify-between px-4 py-2">
                 {/* <textarea
                   className="chatMessageInput w-full h-24 resize-none py-2 px-4 border border-gray-200 focus:outline-none rounded-md"
                   placeholder="Type your message here..."
@@ -187,7 +185,7 @@ const ChatPage = () => {
                 />
 
                 <button
-                  className="chatSubmitButton px-4 py-2 ml-2 text-white bg-teal-500 rounded-md hover:bg-teal-700"
+                  className="chatSubmitButton px-4 py-2 ml-2 text-white bg-green-700 rounded-md hover:bg-green-900"
                   onClick={handleSubmit}
                   disabled={newMessage === ""}
                 >
