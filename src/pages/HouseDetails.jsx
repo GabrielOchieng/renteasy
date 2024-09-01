@@ -103,13 +103,16 @@ const HouseDetails = () => {
 
       <div className="mt-4 flex flex-col lg:flex-row lg:justify-between border border-gray-200 rounded-lg p-6 mb-6 bg-gray-50">
         <Map town={data?.town} />
-        <div className="mt-4 lg:mt-0 lg:ml-6">
-          <p className="text-lg font-semibold mb-2">
+        <div className="mt-4 lg:mt-0 lg:ml-6 border border-gray-200 p-4 rounded-lg shadow-sm">
+          <p className="text-lg font-semibold mb-2 ">
             Rent:{" "}
-            <span className="font-bold">Ksh.{data?.rentPrice} per month</span>
+            <span className="font-bold text-green-400">
+              Ksh.{data?.rentPrice} per month
+            </span>
           </p>
           <p className="mb-2">Bedrooms: {data?.bedrooms}</p>
-          <p className="mb-2">Location: {data?.town}</p>
+          <p className="mb-2">Town: {data?.town}</p>
+          <p className="mb-2">Estate: {data?.estate}</p>
           <p>Description: {data?.description}</p>
         </div>
       </div>

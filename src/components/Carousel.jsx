@@ -30,7 +30,7 @@ const Carousel = ({ images, openModal }) => {
       {/* Previous Button */}
       <button
         onClick={goToPrevious}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700"
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-green-400 text-white p-2 rounded-full hover:bg-green-700"
       >
         &#10094;
       </button>
@@ -38,7 +38,7 @@ const Carousel = ({ images, openModal }) => {
       {/* Next Button */}
       <button
         onClick={goToNext}
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700"
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-green-400 text-white p-2 rounded-full hover:bg-green-700"
       >
         &#10095;
       </button>
@@ -50,7 +50,7 @@ const Carousel = ({ images, openModal }) => {
             key={index}
             onClick={() => goToImage(index)}
             className={`w-3 h-3 rounded-full ${
-              index === currentIndex ? "bg-gray-800" : "bg-gray-400"
+              index === currentIndex ? "bg-green-800" : "bg-green-400"
             } transition-colors`}
           ></button>
         ))}
