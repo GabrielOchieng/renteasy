@@ -110,10 +110,21 @@ const HouseDetails = () => {
               Ksh.{data?.rentPrice} per month
             </span>
           </p>
-          <p className="mb-2">Bedrooms: {data?.bedrooms}</p>
-          <p className="mb-2">Town: {data?.town}</p>
-          <p className="mb-2">Estate: {data?.estate}</p>
-          <p>Description: {data?.description}</p>
+          <p className="mb-2">
+            {" "}
+            <span className="font-bold">Bedrooms:</span> {data?.bedrooms}
+          </p>
+          <p className="mb-2">
+            {" "}
+            <span className="font-bold">Town:</span> {data?.town}
+          </p>
+          <p className="mb-2">
+            {" "}
+            <span className="font-bold">Estate:</span> {data?.estate}
+          </p>
+          <p>
+            <span className="font-bold">Description:</span> {data?.description}
+          </p>
         </div>
       </div>
 
