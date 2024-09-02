@@ -21,50 +21,6 @@ const HouseForm = () => {
   const handleClick = () => {
     hiddenFileInputRef.current.click();
   };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   const formData = new FormData();
-  //   formData.append("street", street);
-  //   formData.append("town", town);
-  //   formData.append("estate", estate);
-  //   formData.append("address", address);
-  //   formData.append("propertyType", propertyType);
-  //   formData.append("bedrooms", bedrooms);
-  //   formData.append("bathrooms", bathrooms);
-  //   formData.append("rentPrice", rentPrice);
-  //   formData.append("description", description);
-  //   formData.append("contactInfo", contactInfo);
-  //   for (let i = 0; i < images.length; i++) {
-  //     formData.append("images", images[i]);
-  //   }
-
-  //   try {
-  //     const response = await createHouse(formData);
-  //     console.log("RESPONSE", response);
-
-  //     // Show success toast notification
-  //     toast.success("House created successfully!");
-
-  //     // Clear form fields
-  //     setStreet("");
-  //     setTown("");
-  //     setEstate("");
-  //     setAddress("");
-  //     setPropertyType("");
-  //     setBedrooms(0);
-  //     setBathrooms(0);
-  //     setRentPrice(0);
-  //     setImages([]);
-  //     setDescription("");
-  //     setContactInfo("");
-  //   } catch (err) {
-  //     console.log(err);
-  //     toast.error("Error creating house. Please try again.");
-  //   }
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
