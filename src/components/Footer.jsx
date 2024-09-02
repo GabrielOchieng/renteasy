@@ -62,11 +62,11 @@ const Footer = () => {
               <FaLocationDot className="inline mr-2" />
               123 Rental St.
               <br />
-              City, State 12345
+              City, Nairobi 00100
               <br />
-              Email: contact@renteasy.com
+              Email: thegabrielshow2@gmail.com
               <br />
-              Phone: (123) 456-7890
+              Phone: (+254) 792-390805
             </p>
           </div>
 
