@@ -135,41 +135,39 @@ const HouseDetails = () => {
         {showSellerInfo ? "Hide Seller Information" : "Show Seller Information"}
       </button>
 
-      {showSellerInfo && (
-        <div className="w-full flex items-center border border-gray-300 rounded-lg p-6 bg-white">
-          <IoPersonCircleOutline className="h-16 w-16 text-green-500" />
-          <div className="ml-4">
-            <p className="text-lg font-semibold mb-2">
-              Landlord Name: {data?.landlord?.name}
-            </p>
-            {!isLandlord ? (
-              <Link
-                to={`/chats`}
-                className="text-green-500 hover:underline"
-                onClick={handleStartChat}
-              >
-                Chat to enquire more
-              </Link>
-            ) : (
-              <p className="text-gray-600">
-                You are the landlord of this property.
+      {showSellerInfo &&
+        (userInfo ? (
+          <div className="w-full flex items-center border border-gray-300 rounded-lg p-6 bg-white">
+            <IoPersonCircleOutline className="h-16 w-16 text-green-500" />
+            <div className="ml-4">
+              <p className="text-lg font-semibold mb-2">
+                Landlord Name: {data?.landlord?.name}
               </p>
-            )}
+              {!isLandlord ? (
+                <Link
+                  to={`/chats`}
+                  className="text-green-500 hover:underline"
+                  onClick={handleStartChat}
+                >
+                  Chat to enquire more
+                </Link>
+              ) : (
+                <p className="text-gray-600">
+                  You are the landlord of this property.
+                </p>
+              )}
+            </div>
           </div>
-        </div>
-      )}
-
-      {!userInfo && (
-        <div className="mt-4 p-4 bg-gray-100 rounded-lg text-center">
-          <p className="text-gray-700">Login to view more information</p>
-          <Link
-            to="/login"
-            className="text-green-500 hover:underline mt-2 block"
-          >
-            Login
-          </Link>
-        </div>
-      )}
+        ) : (
+          <div className="mt-4 p-4 bg-gray-100 rounded-lg text-center">
+            <Link
+              to="/login"
+              className="text-green-500 hover:underline mt-2 block"
+            >
+              Login to view more information
+            </Link>
+          </div>
+        ))}
 
       {/* Modal for image preview */}
       {showModal && (
