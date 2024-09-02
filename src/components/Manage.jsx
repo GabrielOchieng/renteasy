@@ -30,7 +30,7 @@ const Manage = () => {
                 using our comprehensive marketing platform.
               </p>
               <Link
-                to="/houses"
+                to="/create"
                 className="inline-block bg-green-500 w-64 text-white text-lg font-semibold py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300"
               >
                 List Your Property
@@ -63,7 +63,7 @@ const Manage = () => {
                 transactions seamlessly from anywhere.
               </p>
               <Link
-                to="/"
+                to="/chats"
                 className="inline-block bg-green-500 w-64 text-white text-lg font-semibold py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300"
               >
                 Manage Your Property
