@@ -1,31 +1,34 @@
 import { Link } from "react-router-dom";
 import home from "../assets/images/homebg.jpeg";
+import housekey from "../assets/images/housekey.webp";
+import rentals from "../assets/images/rentals.jpeg";
+import own from "../assets/images/home.webp";
 
 const items = [
   {
-    image: { home },
-    title: "Presidential",
+    image: home,
+    title: "Home",
     street: "3022 Kitengela",
     address: "3022",
     type: "4 Bedroom",
   },
   {
-    image: { home },
-    title: "Lake",
+    image: own,
+    title: "Own Compound",
     street: "Garden City",
     address: "1234",
     type: "Apartment",
   },
   {
-    image: { home },
-    title: "The Residences",
+    image: housekey,
+    title: "Single Room",
     street: "Manyanja",
     address: "457",
     type: "Single Room",
   },
   {
-    image: { home },
-    title: "Sentral",
+    image: rentals,
+    title: "Bed Sitter",
     street: "1233 Kahawa",
     address: "86",
     type: "Bedsitter",
@@ -41,12 +44,13 @@ const Explore = () => {
       </div>
       <div className="flex flex-wrap gap-6 justify-center">
         {items.map((item, index) => (
-          <div
+          <Link
+            to="/houses"
             key={index}
             className="w-[90%] sm:w-1/2 md:w-1/4 lg:w-[22%] bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
           >
             <img
-              src={item.image.home}
+              src={item.image}
               alt={item.title}
               className="w-full h-48 object-cover"
             />
@@ -58,7 +62,7 @@ const Explore = () => {
               <p className="text-center text-gray-600">{item.address}</p>
               <p className="text-center text-gray-600">{item.type}</p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
       <div className="text-center mt-8">

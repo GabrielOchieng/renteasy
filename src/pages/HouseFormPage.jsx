@@ -267,7 +267,7 @@ const HouseForm = () => {
                 htmlFor="rentPrice"
                 className="block text-sm font-medium text-gray-700"
               >
-                Rent Price
+                Rent Price (Ksh.)
               </label>
               <input
                 type="number"
