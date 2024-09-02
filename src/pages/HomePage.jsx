@@ -10,7 +10,7 @@ import { Fade } from "react-awesome-reveal";
 
 const HomePage = () => {
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50 overflow-hidden">
       <Header />
       <Explore />
 
