@@ -1,8 +1,9 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import agent from "../assets/images/agent.jpg"; // Update this path as needed
+import agent from "../assets/images/agent.jpg";
 import CountUp from "react-countup"; // Import the CountUp component
+import { Fade } from "react-awesome-reveal";
 
 const AboutUs = () => {
   return (
@@ -34,6 +35,7 @@ const AboutUs = () => {
                   </h3>
                   <p className="text-gray-600">Listings Available</p>
                 </div>
+
                 <div className="border border-green-400 rounded-lg p-3 bg-white shadow-lg">
                   <h3 className="text-2xl font-bold text-green-600">
                     <CountUp end={2000} duration={10} separator="," />+
@@ -61,129 +63,137 @@ const AboutUs = () => {
         </section>
 
         {/* Our Values Section */}
-        <section className="mb-12 bg-green-100 py-12 px-6">
-          <div className="container mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-8 text-green-900">
-              Our Values
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-              <div className="p-8 bg-white shadow-xl rounded-lg transition-transform transform hover:scale-105">
-                <h3 className="text-2xl font-semibold mb-4 text-green-700">
-                  User-Centric
-                </h3>
-                <p className="text-gray-700">
-                  At Renteasy, the user experience is our top priority. We
-                  design our platform to be intuitive and accessible, ensuring
-                  that finding and managing rental properties is as easy as
-                  possible.
-                </p>
-              </div>
-              <div className="p-8 bg-white shadow-xl rounded-lg transition-transform transform hover:scale-105">
-                <h3 className="text-2xl font-semibold mb-4 text-green-700">
-                  Innovation
-                </h3>
-                <p className="text-gray-700">
-                  We are committed to integrating the latest technology to
-                  improve our services. Our platform features cutting-edge tools
-                  to enhance your rental experience and streamline the property
-                  search process.
-                </p>
-              </div>
-              <div className="p-8 bg-white shadow-xl rounded-lg transition-transform transform hover:scale-105">
-                <h3 className="text-2xl font-semibold mb-4 text-green-700">
-                  Transparency
-                </h3>
-                <p className="text-gray-700">
-                  Transparency is at the core of our operations. We provide
-                  clear and accurate information to help users make informed
-                  decisions about their rental options.
-                </p>
-              </div>
-              <div className="p-8 bg-white shadow-xl rounded-lg transition-transform transform hover:scale-105">
-                <h3 className="text-2xl font-semibold mb-4 text-green-700">
-                  Our Commitment
-                </h3>
-                <p className="text-gray-700">
-                  Renteasy is dedicated to providing a seamless and supportive
-                  rental experience. We strive to continually enhance our
-                  platform, offer exceptional customer service, and ensure that
-                  every interaction with our website meets the highest standards
-                  of quality and efficiency.
-                </p>
+        <Fade duration={1000} delay={500}>
+          <section className="mb-12 bg-green-100 py-12 px-6">
+            <div className="container mx-auto">
+              <h2 className="text-4xl font-bold text-center mb-8 text-green-900">
+                Our Values
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <div className="p-8 bg-white shadow-xl rounded-lg transition-transform transform hover:scale-105">
+                  <h3 className="text-2xl font-semibold mb-4 text-green-700">
+                    User-Centric
+                  </h3>
+                  <p className="text-gray-700">
+                    At Renteasy, the user experience is our top priority. We
+                    design our platform to be intuitive and accessible, ensuring
+                    that finding and managing rental properties is as easy as
+                    possible.
+                  </p>
+                </div>
+
+                <div className="p-8 bg-white shadow-xl rounded-lg transition-transform transform hover:scale-105">
+                  <h3 className="text-2xl font-semibold mb-4 text-green-700">
+                    Innovation
+                  </h3>
+                  <p className="text-gray-700">
+                    We are committed to integrating the latest technology to
+                    improve our services. Our platform features cutting-edge
+                    tools to enhance your rental experience and streamline the
+                    property search process.
+                  </p>
+                </div>
+                <div className="p-8 bg-white shadow-xl rounded-lg transition-transform transform hover:scale-105">
+                  <h3 className="text-2xl font-semibold mb-4 text-green-700">
+                    Transparency
+                  </h3>
+                  <p className="text-gray-700">
+                    Transparency is at the core of our operations. We provide
+                    clear and accurate information to help users make informed
+                    decisions about their rental options.
+                  </p>
+                </div>
+                <div className="p-8 bg-white shadow-xl rounded-lg transition-transform transform hover:scale-105">
+                  <h3 className="text-2xl font-semibold mb-4 text-green-700">
+                    Our Commitment
+                  </h3>
+                  <p className="text-gray-700">
+                    Renteasy is dedicated to providing a seamless and supportive
+                    rental experience. We strive to continually enhance our
+                    platform, offer exceptional customer service, and ensure
+                    that every interaction with our website meets the highest
+                    standards of quality and efficiency.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </Fade>
 
         {/* Our Achievements Section */}
-        <section className="mb-12 bg-gray-100 py-12 px-6">
-          <div className="container mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-8 text-gray-900">
-              Our Achievements
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="p-8 bg-white shadow-lg rounded-lg transform transition-transform hover:scale-105">
-                <div className="flex items-center mb-4">
-                  <FaStar className="text-green-500 text-2xl mr-3" />
-                  <h3 className="text-2xl font-semibold text-gray-800">
-                    Top User Ratings
-                  </h3>
+        <Fade duration={1000} delay={500}>
+          <section className="mb-12 bg-gray-100 py-12 px-6">
+            <div className="container mx-auto">
+              <h2 className="text-4xl font-bold text-center mb-8 text-gray-900">
+                Our Achievements
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="p-8 bg-white shadow-lg rounded-lg transform transition-transform hover:scale-105">
+                  <div className="flex items-center mb-4">
+                    <FaStar className="text-green-500 text-2xl mr-3" />
+                    <h3 className="text-2xl font-semibold text-gray-800">
+                      Top User Ratings
+                    </h3>
+                  </div>
+                  <p className="text-gray-600">
+                    Renteasy has consistently received high ratings from users
+                    for its ease of use, reliability, and customer support,
+                    reflecting our commitment to excellence.
+                  </p>
                 </div>
-                <p className="text-gray-600">
-                  Renteasy has consistently received high ratings from users for
-                  its ease of use, reliability, and customer support, reflecting
-                  our commitment to excellence.
-                </p>
-              </div>
-              <div className="p-8 bg-white shadow-lg rounded-lg transform transition-transform hover:scale-105">
-                <div className="flex items-center mb-4">
-                  <FaStar className="text-green-500 text-2xl mr-3" />
-                  <h3 className="text-2xl font-semibold text-gray-800">
-                    Innovation Awards
-                  </h3>
+                <div className="p-8 bg-white shadow-lg rounded-lg transform transition-transform hover:scale-105">
+                  <div className="flex items-center mb-4">
+                    <FaStar className="text-green-500 text-2xl mr-3" />
+                    <h3 className="text-2xl font-semibold text-gray-800">
+                      Innovation Awards
+                    </h3>
+                  </div>
+                  <p className="text-gray-600">
+                    Our innovative approach and dedication to improving the
+                    rental experience have earned us several awards in the tech
+                    and real estate sectors.
+                  </p>
                 </div>
-                <p className="text-gray-600">
-                  Our innovative approach and dedication to improving the rental
-                  experience have earned us several awards in the tech and real
-                  estate sectors.
-                </p>
-              </div>
-              <div className="p-8 bg-white shadow-lg rounded-lg transform transition-transform hover:scale-105">
-                <div className="flex items-center mb-4">
-                  <FaStar className="text-green-500 text-2xl mr-3" />
-                  <h3 className="text-2xl font-semibold text-gray-800">
-                    Community Impact
-                  </h3>
+                <div className="p-8 bg-white shadow-lg rounded-lg transform transition-transform hover:scale-105">
+                  <div className="flex items-center mb-4">
+                    <FaStar className="text-green-500 text-2xl mr-3" />
+                    <h3 className="text-2xl font-semibold text-gray-800">
+                      Community Impact
+                    </h3>
+                  </div>
+                  <p className="text-gray-600">
+                    Our platform has made a significant impact on communities by
+                    helping users find their ideal homes and enhancing the
+                    rental process with advanced features.
+                  </p>
                 </div>
-                <p className="text-gray-600">
-                  Our platform has made a significant impact on communities by
-                  helping users find their ideal homes and enhancing the rental
-                  process with advanced features.
-                </p>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </Fade>
 
         {/* Call to Action */}
-        <section className="bg-green-50 py-12 px-6 mb-12">
-          <div className="container mx-auto text-center">
-            <h2 className="text-4xl font-bold text-green-900 mb-6">
-              Find Your Perfect Rental
-            </h2>
-            <p className="text-lg text-gray-700 mb-8">
-              Explore Renteasy to find your ideal rental property today. Whether
-              you're searching for a new apartment, house, or commercial space,
-              our platform offers a wide range of options to meet your needs.
-            </p>
-            <Link
-              to="/houses"
-              className="inline-block bg-green-500 text-white py-3 px-8 rounded-lg text-lg font-semibold hover:bg-green-600 transition transform hover:scale-105"
-            >
-              Start Searching
-            </Link>
-          </div>
-        </section>
+        <Fade duration={1000} delay={500}>
+          <section className="bg-green-50 py-12 px-6 mb-12">
+            <div className="container mx-auto text-center">
+              <h2 className="text-4xl font-bold text-green-900 mb-6">
+                Find Your Perfect Rental
+              </h2>
+              <p className="text-lg text-gray-700 mb-8">
+                Explore Renteasy to find your ideal rental property today.
+                Whether you're searching for a new apartment, house, or
+                commercial space, our platform offers a wide range of options to
+                meet your needs.
+              </p>
+              <Link
+                to="/houses"
+                className="inline-block bg-green-500 text-white py-3 px-8 rounded-lg text-lg font-semibold hover:bg-green-600 transition transform hover:scale-105"
+              >
+                Start Searching
+              </Link>
+            </div>
+          </section>
+        </Fade>
       </div>
     </div>
   );
