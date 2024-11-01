@@ -40,25 +40,24 @@ const SelectedItems = () => {
   }
 
   return (
-    <div className="pt-3 min-h-screen">
+    <div className="bg-gray-200 px-4 py-8 min-h-screen">
       <h2 className="font-bold text-center">Houses in {filter}</h2>
-      <div className="flex p-4 flex-wrap">
+      <div className=" p-4 flex-wrap gap-4 ">
         {noHouse && (
           <p className="text-center mx-auto">
             No houses found matching {filter}
           </p>
         )}
-        {/* Display filtered houses here */}
-        {filteredHouses.map((house) => (
-          <div key={house._id} className="w-[90%] md:w-[50%] mx-auto">
+        {/* Display filtered houses */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {filteredHouses.map((house) => (
             <HouseCard
+              key={house._id}
               onViewDetails={() => handleViewDetails(house._id)}
               house={house}
             />
-            {/* Render house details */}
-            {/* ... other house details */}
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
