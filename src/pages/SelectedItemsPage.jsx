@@ -40,7 +40,7 @@ const SelectedItems = () => {
   }
 
   return (
-    <div className="bg-gray-200 px-4 py-8 min-h-screen">
+    <div className=" px-4 py-8 min-h-screen">
       <h2 className="font-bold text-center">Houses in {filter}</h2>
       <div className=" p-4 flex-wrap gap-4 ">
         {noHouse && (
